@@ -3,7 +3,7 @@ import Link from 'next/link';
 const MobileMenu = ({ isOpen }: { isOpen: boolean }) => {
   return (
     <div
-      className={`absolute top-full left-0 w-screen  bg-black text-white overflow-hidden transition-all duration-200 ${
+      className={`absolute top-full left-0 w-screen  bg-black text-white z-10 overflow-hidden transition-all duration-200 ${
         isOpen ? 'h-[calc(100vh-92px)]' : 'h-0'
       }`}
     >
