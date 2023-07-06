@@ -6,7 +6,12 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      rotate: {
+        135: '135deg',
+        225: '225deg',
+      },
+    },
   },
   plugins: [],
 };

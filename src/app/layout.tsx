@@ -1,3 +1,4 @@
+import Header from '@/components/shared/header/Header';
 import './globals.css';
 
 export const metadata = {
@@ -12,7 +13,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pl">
-      <body>{children}</body>
+      <body className="flex flex-col items-center justify-between w-screen min-h-screen h-full bg-black">
+        <div className="flex flex-col items-center w-full max-w-[1600px] min-h-screen">
+          <Header />
+          <main className="w-full grow bg-white">{children}</main>
+        </div>
+      </body>
     </html>
   );
 }
