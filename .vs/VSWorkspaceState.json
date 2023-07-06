@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\assets",
+    "\\src\\components",
+    "\\src\\components\\header",
+    "\\src\\components\\header\\hamburger"
+  ],
+  "SelectedNode": "\\src\\components\\header\\hamburger\\Hamburger.tsx",
+  "PreviewInSolutionExplorer": false
+}
