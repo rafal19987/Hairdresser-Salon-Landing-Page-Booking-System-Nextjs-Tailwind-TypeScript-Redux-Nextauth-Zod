@@ -7,7 +7,11 @@ export const metadata = {
   description: 'Męski Fryzjer',
 };
 
-const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '700'] });
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  style: ['italic', 'normal'],
+});
 
 export default function RootLayout({
   children,
@@ -17,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="pl">
       <body
-        className={`${montserrat.className} flex flex-col items-center justify-between w-screen min-h-screen h-full bg-[var(--body-bg-dark)] text-[var(--primary-text-color)]`}
+        className={`${montserrat.className} flex flex-col items-center justify-between w-screen min-h-screen h-full bg-[var(--body-bg-dark)] text-[var(--primary-text-color)] font-normal`}
       >
         <div className="flex flex-col items-center w-full max-w-[1600px] min-h-screen h-full">
           <Header />
