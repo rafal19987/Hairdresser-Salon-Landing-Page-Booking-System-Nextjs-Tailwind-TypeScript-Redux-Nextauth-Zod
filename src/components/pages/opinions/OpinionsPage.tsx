@@ -10,7 +10,9 @@ const OpinionsPage = () => {
   useEffect(() => {
     const getReviews = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api');
+        const response = await fetch(process.env.NEXT_PUBLIC_FETCH_API_URL!);
+        console.log(response);
+        console.log(process.env.NEXT_PUBLIC_FETCH_API_URL);
         const data = await response.json();
         setReviews(data);
       } catch (error) {

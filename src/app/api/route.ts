@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 
 export async function GET() {
   const API_KEY: string = process.env.API_KEY!;
@@ -8,6 +8,7 @@ export async function GET() {
   try {
     const res = await fetch(API_URL);
     const data = await res.json();
+    console.log('data', data);
     return NextResponse.json(data.result.reviews);
   } catch (error) {
     return NextResponse.json(error);
