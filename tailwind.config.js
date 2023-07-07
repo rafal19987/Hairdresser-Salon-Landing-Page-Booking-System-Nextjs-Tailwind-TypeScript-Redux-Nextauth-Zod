@@ -11,6 +11,9 @@ module.exports = {
         135: '135deg',
         225: '225deg',
       },
+      boxShadow: {
+        cardShadow: '-8px 8px 12px 0px rgba(255, 215, 0, 0.38)',
+      },
     },
   },
   plugins: [],
