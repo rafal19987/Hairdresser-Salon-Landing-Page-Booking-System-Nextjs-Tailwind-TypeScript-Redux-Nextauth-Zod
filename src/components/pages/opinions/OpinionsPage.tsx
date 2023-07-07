@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import starIcon from '@/assets/star-icon.svg';
 
 const OpinionsPage = () => {
-  const [reviews, setReviews] = useState(null);
+  const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
     const getReviews = async () => {
