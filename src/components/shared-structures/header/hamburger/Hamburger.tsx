@@ -8,7 +8,6 @@ const Hamburger = () => {
 
   const clickHandler = () => {
     setIsMobileMenuOpen((prev) => (prev ? false : true));
-    console.log(isMobileMenuOpen);
   };
 
   return (

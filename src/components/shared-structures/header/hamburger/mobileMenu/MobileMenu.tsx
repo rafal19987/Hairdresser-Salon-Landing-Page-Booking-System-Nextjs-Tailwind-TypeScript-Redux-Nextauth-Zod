@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import navigationRoutes from '@/helpers/routes/navigationRoutes';
+import { TNavigationRoutesProps } from '@/types/navigationRoutesTypes';
 
 const MobileMenu = ({ isOpen }: { isOpen: boolean }) => {
   return (
@@ -12,21 +14,11 @@ const MobileMenu = ({ isOpen }: { isOpen: boolean }) => {
           isOpen ? 'h-full opacity-1' : 'h-0 opacity-0'
         }`}
       >
-        <li>
-          <Link href={'#'}>Strona główna</Link>
-        </li>
-        <li>
-          <Link href={'#'}>O nas</Link>
-        </li>
-        <li>
-          <Link href={'#'}>Cennik</Link>
-        </li>
-        <li>
-          <Link href={'#'}>Godziny otwarcia</Link>
-        </li>
-        <li>
-          <Link href={'#'}>Kontakt</Link>
-        </li>
+        {navigationRoutes.map((route: TNavigationRoutesProps) => (
+          <li key={route.routeName}>
+            <Link href={route.route}>{route.routeName}</Link>
+          </li>
+        ))}
       </ul>
     </div>
   );

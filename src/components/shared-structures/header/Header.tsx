@@ -1,6 +1,6 @@
-import Logo from '@/components/shared/logo/Logo';
-import Hamburger from '@/components/shared/header/hamburger/Hamburger';
-import NavbarMenu from '@/components/shared/header/navbarMenu/NavbarMenu';
+import Logo from '@/components/shared-atoms/logo/Logo';
+import Hamburger from '@/components/shared-structures/header/hamburger/Hamburger';
+import NavbarMenu from '@/components/shared-structures/header/navbarMenu/NavbarMenu';
 import { Permanent_Marker } from 'next/font/google';
 import logo from '@/assets/logo.svg';
 
@@ -25,9 +25,9 @@ const Header = () => {
       <div className="block w-14 h-10 bg-black rounded-lg md:hidden">
         <Hamburger />
       </div>
-      <div className="hidden md:w-[500px] lg:w-[600px] xl:w-[800px] h-[45px] md:block">
+      <nav className="hidden md:w-[500px] lg:w-[600px] xl:w-[800px] h-[45px] md:block">
         <NavbarMenu />
-      </div>
+      </nav>
     </header>
   );
 };

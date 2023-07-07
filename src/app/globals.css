@@ -3,8 +3,10 @@
 @tailwind utilities;
 
 :root {
+  --body-bg-dark: #0f1011;
   --header-bg-dark: #0f1011;
   --header-bg-light: #000000;
   --hamburger-bg: #424543;
   --gold: #ffd700;
+  --primary-text-color: #fff;
 }
