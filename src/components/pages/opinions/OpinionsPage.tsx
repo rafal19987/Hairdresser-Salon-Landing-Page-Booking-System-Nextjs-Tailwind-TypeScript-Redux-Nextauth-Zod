@@ -2,18 +2,17 @@
 
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { TReviewsProps } from '@/types/apiResponseTypes';
 import starIcon from '@/assets/star-icon.svg';
 
 const OpinionsPage = () => {
-  const [reviews, setReviews] = useState([]);
+  const [reviews, setReviews] = useState<TReviewsProps[] | []>([]);
 
   useEffect(() => {
     const getReviews = async () => {
       try {
         const response = await fetch(process.env.NEXT_PUBLIC_FETCH_API_URL!);
-        console.log(response);
-        console.log(process.env.NEXT_PUBLIC_FETCH_API_URL);
-        const data = await response.json();
+        const data: TReviewsProps[] = await response.json();
         setReviews(data);
       } catch (error) {
         console.log(error);
@@ -32,7 +31,7 @@ const OpinionsPage = () => {
 
       <section>
         <ul>
-          {reviews?.map((review: any) => (
+          {reviews?.map((review) => (
             <li
               className="relative flex flex-col mx-14 my-14 py-4 gap-4 bg-[#424242] rounded-[20px]"
               key={review.author_name}
