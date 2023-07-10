@@ -12,7 +12,7 @@ const ReviewItem = ({ review }: { review: TReviewsProps }) => {
   } = review;
 
   return (
-    <li className="relative flex flex-col mx-14 my-14 py-4 gap-4 bg-[#424242] rounded-[20px]">
+    <li className="relative flex flex-col mx-8 my-14 py-4 gap-4 bg-[#424242] rounded-[20px]">
       <div className="absolute -top-6 left-4 flex gap-2">
         {Array.from({ length: rating }, (_, index) => (
           <Image
@@ -25,7 +25,7 @@ const ReviewItem = ({ review }: { review: TReviewsProps }) => {
         ))}
       </div>
       <Image
-        className="absolute -right-6 -top-8"
+        className={`max-[295px]:hidden absolute -right-4 -top-8`}
         src={profile_photo_url}
         alt="avatar of author`s review"
         width={64}
