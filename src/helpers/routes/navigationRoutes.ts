@@ -18,7 +18,7 @@ const navigationRoutes: TNavigationRoutesProps[] = [
     routeName: 'Galeria',
   },
   {
-    route: '/opinions',
+    route: '/reviews',
     routeName: 'Opinie',
   },
   {
