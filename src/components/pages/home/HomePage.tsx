@@ -1,4 +1,4 @@
-import Card from './components/card/Card';
+import Card from './components/Card';
 import homeContent from '@/helpers/content/pages/home/homeContent';
 
 const HomePage = () => {

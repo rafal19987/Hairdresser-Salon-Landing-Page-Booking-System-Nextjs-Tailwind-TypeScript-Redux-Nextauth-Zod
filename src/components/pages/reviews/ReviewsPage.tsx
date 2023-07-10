@@ -1,6 +1,6 @@
-import ReviewsList from './components/reviews/ReviewsList';
+import ReviewsList from './components/ReviewsList';
 
-const OpinionsPage = () => {
+const ReviewsPage = () => {
   return (
     <div className="w-full">
       <h2 className="relative w-fit mx-8 mt-8 text-2xl ">
@@ -16,4 +16,4 @@ const OpinionsPage = () => {
   );
 };
 
-export default OpinionsPage;
+export default ReviewsPage;
