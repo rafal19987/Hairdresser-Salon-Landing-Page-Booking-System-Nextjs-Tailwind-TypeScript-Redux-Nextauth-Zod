@@ -13,6 +13,7 @@ module.exports = {
       },
       boxShadow: {
         cardShadow: '-8px 8px 12px 0px rgba(255, 215, 0, 0.38)',
+        cardShadowReverse: '8px 8px 12px 0px rgba(255, 215, 0, 0.38)',
       },
     },
   },
