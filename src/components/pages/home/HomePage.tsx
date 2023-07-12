@@ -1,8 +1,8 @@
 import Card from './components/Card';
-import homeContent from '@/helpers/content/pages/home/homeContent';
+import homePageContent from '@/helpers/content/pages/home/homeContent';
 
 const HomePage = () => {
-  const { primaryHeader, secondaryHeader } = homeContent;
+  const { primaryHeader, secondaryHeader } = homePageContent;
 
   return (
     <div className="flex grow flex-col gap-12 items-center  h-full w-full">
