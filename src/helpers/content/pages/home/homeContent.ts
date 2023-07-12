@@ -1,6 +1,6 @@
-import { THomeContentProps } from '@/types/contentTypes';
+import { THomePageContentProps } from '@/types/contentTypes';
 
-const homeContent: THomeContentProps = {
+const homePageContent: THomePageContentProps = {
   primaryHeader: 'Fryzjer męski',
   secondaryHeader: 'Umów się na wizytę',
   primaryAddress: 'ul. Nowotorska 12',
@@ -8,4 +8,4 @@ const homeContent: THomeContentProps = {
   phoneNumber: '511 511 511',
 };
 
-export default homeContent;
+export default homePageContent;
