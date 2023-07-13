@@ -5,12 +5,12 @@ const HomePage = () => {
   const { primaryHeader, secondaryHeader } = homePageContent;
 
   return (
-    <div className="flex grow flex-col gap-12 items-center  h-full w-full p-4">
+    <div className="flex grow flex-col gap-6 items-center  h-full w-full p-4">
       <div className="flex flex-col gap-4 w-full">
-        <h2 className="text-white text-3xl text-center font-bold">
+        <h2 className="text-black dark:text-white text-3xl text-center font-bold">
           {primaryHeader}
         </h2>
-        <h3 className="text-white text-2xl text-center font-bold">
+        <h3 className="text-black dark:text-white text-2xl text-center font-bold">
           {secondaryHeader}
         </h3>
       </div>
