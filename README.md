@@ -3,8 +3,8 @@
 First, run the development server:
 
 ```bash
-npm clone https://github.com/rafal19987/hairderesser-page.git
-npm cd hairderesser-page
+git clone https://github.com/rafal19987/hairderesser-page.git
+cd hairderesser-page
 npm i
 npm run dev
 ```
