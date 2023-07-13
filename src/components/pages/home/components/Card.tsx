@@ -25,7 +25,7 @@ const Card = () => {
           fill
         ></Image>
       </picture>
-      <ul className="flex flex-col gap-14 h-full w-fit p-8">
+      <ul className="flex flex-col gap-8 h-full w-full p-8">
         <li className="hidden lg:flex self-end items-center gap-6">
           <div className={`${permamentMarkerFont.className} flex flex-col`}>
             <h2 className="text-4xl text-[var(--gold)]">Męska strefa</h2>
