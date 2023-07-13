@@ -4,9 +4,11 @@
 
 :root {
   --body-bg-dark: #0f1011;
+  --body-bg-light: #fff;
   --header-bg-dark: #0f1011;
   --header-bg-light: #000000;
   --hamburger-bg: #424543;
   --gold: #ffd700;
+  --gray: #494949;
   --primary-text-color: #fff;
 }

@@ -1,4 +1,5 @@
 import Logo from '@/components/shared-atoms/logo/Logo';
+import ChangeThemeBtn from '@/components/shared-atoms/changeThemeBtn/ChangeThemeBtn';
 import Hamburger from '@/components/shared-structures/header/hamburger/Hamburger';
 import NavbarMenu from '@/components/shared-structures/header/navbarMenu/NavbarMenu';
 import { Permanent_Marker } from 'next/font/google';
@@ -21,6 +22,9 @@ const Header = () => {
         >
           Męska strefa
         </h1>
+      </div>
+      <div>
+        <ChangeThemeBtn />
       </div>
       <div className="block w-14 h-10 bg-black rounded-lg md:hidden">
         <Hamburger />
