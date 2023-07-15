@@ -59,13 +59,13 @@ const AboutPage = () => {
           <div className="flex flex-col mt-14">
             <div className="relative w-[155px] h-[220px] rounded-3xl">
               <Image
-                className="rounded-3xl"
+                className="rounded-3xl z-10"
                 src={agnieszkaImage}
                 alt="Agnieszka image"
                 fill
               />
               <Image
-                className="absolute -top-6 -left-6 -z-10"
+                className="absolute -top-6 -left-6 "
                 src={combIcon}
                 alt="comb icon"
               />

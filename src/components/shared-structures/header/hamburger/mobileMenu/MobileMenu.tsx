@@ -2,7 +2,13 @@ import Link from 'next/link';
 import navigationRoutes from '@/helpers/routes/navigationRoutes';
 import { TNavigationRoutesProps } from '@/types/navigationRoutesTypes';
 
-const MobileMenu = ({ isOpen }: { isOpen: boolean }) => {
+const MobileMenu = ({
+  isOpen,
+  closeMenu,
+}: {
+  isOpen: boolean;
+  closeMenu: () => void;
+}) => {
   return (
     <div
       className={`absolute top-full left-0 w-screen  bg-black text-white z-10 overflow-hidden transition-all duration-200 ${
@@ -16,7 +22,9 @@ const MobileMenu = ({ isOpen }: { isOpen: boolean }) => {
       >
         {navigationRoutes.map((route: TNavigationRoutesProps) => (
           <li key={route.routeName}>
-            <Link href={route.route}>{route.routeName}</Link>
+            <Link onClick={() => closeMenu} href={route.route}>
+              {route.routeName}
+            </Link>
           </li>
         ))}
       </ul>

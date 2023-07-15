@@ -4,7 +4,11 @@ import { useState } from 'react';
 import MobileMenu from './mobileMenu/MobileMenu';
 
 const Hamburger = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const closeMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
 
   const clickHandler = () => {
     setIsMobileMenuOpen((prev) => (prev ? false : true));
@@ -32,7 +36,7 @@ const Hamburger = () => {
           }`}
         />
       </button>
-      <MobileMenu isOpen={isMobileMenuOpen} />
+      <MobileMenu isOpen={isMobileMenuOpen} closeMenu={closeMenu} />
     </>
   );
 };
