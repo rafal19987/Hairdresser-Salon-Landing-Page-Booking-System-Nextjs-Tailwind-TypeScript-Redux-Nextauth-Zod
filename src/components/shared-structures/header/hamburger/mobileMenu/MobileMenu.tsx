@@ -22,7 +22,7 @@ const MobileMenu = ({
       >
         {navigationRoutes.map((route: TNavigationRoutesProps) => (
           <li key={route.routeName}>
-            <Link onClick={() => closeMenu} href={route.route}>
+            <Link onClick={closeMenu} href={route.route}>
               {route.routeName}
             </Link>
           </li>
