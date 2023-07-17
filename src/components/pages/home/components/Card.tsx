@@ -17,19 +17,27 @@ const Card = () => {
   const { primaryAddress, secondaryAddress, phoneNumber } = homeContent;
 
   return (
-    <section className="flex flex-col gap-6 items-center h-full w-full pb-12 bg-black rounded-[40px] shadow-xl shadow-[var(--gray)] dark:shadow-[var(--gold)] lg:flex-row lg:w-[915px] lg:h-[494px] overflow-hidden">
-      <picture className="relative w-[227px] h-[265px] lg:w-[414px] lg:h-full">
-        <Image src={mainWithGlassesImgDesktop} alt="man with glasses" fill />
+    <section className="relative flex flex-col gap-6 items-center h-full w-full max-w-[500px] bg-black rounded-[30px] shadow-xl shadow-[var(--gray)] dark:shadow-[var(--gold)] lg:flex-row lg:w-[915px] lg:max-w-full lg:h-[494px] overflow-hidden">
+      <div className="hidden lg:flex absolute top-8 right-8 items-center justify-end gap-6 w-2/4 z-10">
+        <div className={`${permamentMarkerFont.className} flex flex-col`}>
+          <h2 className="text-4xl text-[var(--gold)]">Męska strefa</h2>
+          <h3 className="text-xl text-[var(--gold)]">Poczuj się jak król</h3>
+        </div>
+        <Image src={logoIcon} alt="logo icon on card" />
+      </div>
+      <picture className="relative w-4/5 h-3/5 lg:w-[414px] lg:h-full">
+        <Image
+          className="object-contain"
+          src={mainWithGlassesImgDesktop}
+          alt="man with glasses"
+          fill
+        />
       </picture>
-      <ul className="flex flex-col gap-8 items-center w-full h-full py-4 px-8 text-xl lg:w-2/5">
-        <li className="hidden lg:flex self-end items-center gap-6">
-          <div className={`${permamentMarkerFont.className} flex flex-col`}>
-            <h2 className="text-4xl text-[var(--gold)]">Męska strefa</h2>
-            <h3 className="text-xl text-[var(--gold)]">Poczuj się jak król</h3>
-          </div>
-          <Image src={logoIcon} alt="logo icon on card" />
-        </li>
-        <li className="flex gap-6 items-center justify-center w-full">
+      <ul
+        className="flex flex-col gap-6 items-center justify-center w-full py-4 px-6 text-xl
+      lg:items-end lg:justify-between lg:grow lg:w-2/5 lg:mr-8"
+      >
+        <li className="flex gap-6 items-center justify-between w-full max-w-[300px]">
           <p className="text-white lg:text-xl">{phoneNumber}</p>
           <div className=" w-10 h-10 rounded-lg bg-[var(--gray)]">
             <Link
@@ -40,7 +48,7 @@ const Card = () => {
             </Link>
           </div>
         </li>
-        <li className="self-end flex gap-6 items-center justify-center w-full ">
+        <li className=" flex gap-6 items-center justify-between w-full max-w-[300px]">
           <address className="flex flex-col">
             <p className="text-white lg:text-xl">{primaryAddress}</p>
             <p className="text-white lg:text-xl">{secondaryAddress}</p>

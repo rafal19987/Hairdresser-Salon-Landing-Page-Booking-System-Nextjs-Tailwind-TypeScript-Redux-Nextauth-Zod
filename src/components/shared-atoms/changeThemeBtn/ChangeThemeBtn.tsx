@@ -4,9 +4,9 @@ import { useContext } from 'react';
 import { ThemeContext } from '@/context/ThemeContext';
 
 const ChangeThemeBtn = () => {
-  const { toggleThemeHandler } = useContext(ThemeContext);
+  const { toggleThemeHandler, theme } = useContext(ThemeContext);
 
-  return <button onClick={toggleThemeHandler}>Zmień theme</button>;
+  return <button onClick={toggleThemeHandler}>{theme}</button>;
 };
 
 export default ChangeThemeBtn;
