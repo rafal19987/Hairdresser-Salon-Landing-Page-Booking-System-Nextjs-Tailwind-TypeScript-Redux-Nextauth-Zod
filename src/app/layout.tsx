@@ -25,7 +25,7 @@ export default function RootLayout({
       <body>
         <ThemeContextProvider>
           <div
-            className={`${montserrat.className} flex flex-col items-center justify-between w-screen min-h-screen h-full bg-[var(--body-bg-light)] dark:bg-[var(--body-bg-dark)] text-[var(--primary-text-color)] font-normal overflow-x-hidden`}
+            className={`${montserrat.className} flex flex-col items-center justify-between max-w-screen min-h-screen h-full bg-[var(--body-bg-light)] dark:bg-[var(--body-bg-dark)] text-[var(--primary-text-color)] font-normal overflow-x-hidden`}
           >
             <div className="flex flex-col items-center w-full  min-h-screen h-full">
               <Header />
