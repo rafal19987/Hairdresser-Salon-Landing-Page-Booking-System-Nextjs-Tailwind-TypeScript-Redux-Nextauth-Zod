@@ -3,11 +3,8 @@
 import Link from 'next/link';
 import NavbarMenuItem from './NavbarMenuItem';
 import navigationRoutes from '@/helpers/routes/navigationRoutes';
-import { usePathname } from 'next/navigation';
 
 const NavbarMenu = () => {
-  const pathname = usePathname();
-
   return (
     <ul className="flex items-center justify-between w-full h-full text-white md:text-lg xl:text-xl">
       {/*       <li className="relative">

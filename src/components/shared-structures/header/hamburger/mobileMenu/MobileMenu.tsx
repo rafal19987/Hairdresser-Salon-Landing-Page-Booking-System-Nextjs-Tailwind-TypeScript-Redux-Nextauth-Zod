@@ -1,6 +1,6 @@
-import Link from 'next/link';
 import navigationRoutes from '@/helpers/routes/navigationRoutes';
 import { TNavigationRoutesProps } from '@/types/navigationRoutesTypes';
+import MobileMenuItem from './MobileMenuItem';
 
 const MobileMenu = ({
   isOpen,
@@ -12,7 +12,7 @@ const MobileMenu = ({
   return (
     <div
       className={`absolute top-full left-0 w-screen  bg-black text-white z-10 overflow-hidden transition-all duration-200 ${
-        isOpen ? 'h-[calc(100vh-92px)]' : 'h-0'
+        isOpen ? 'h-[calc(100vh-var(--header-height))]' : 'h-0'
       }`}
     >
       <ul
@@ -21,11 +21,11 @@ const MobileMenu = ({
         }`}
       >
         {navigationRoutes.map((route: TNavigationRoutesProps) => (
-          <li key={route.routeName}>
-            <Link onClick={closeMenu} href={route.route}>
-              {route.routeName}
-            </Link>
-          </li>
+          <MobileMenuItem
+            key={route.routeName}
+            closeMenu={closeMenu}
+            route={route}
+          />
         ))}
       </ul>
     </div>
