@@ -29,7 +29,7 @@ export default function RootLayout({
           >
             <div className="flex flex-col items-center w-full max-w-[1600px] min-h-screen h-full">
               <Header />
-              <main className="flex flex-col items-center grow w-full">
+              <main className="flex flex-col items-center grow w-full ">
                 {children}
               </main>
               <Footer />

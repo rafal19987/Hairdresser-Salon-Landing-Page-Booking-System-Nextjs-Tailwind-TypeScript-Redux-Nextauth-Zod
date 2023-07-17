@@ -12,7 +12,7 @@ const permamentMarkerFont = Permanent_Marker({
 
 const Header = () => {
   return (
-    <header className="relative flex items-center justify-between w-full p-4 bg-[var(--header-bg-light)] dark:bg-[var(--header-bg-dark)]">
+    <header className="relative flex items-center justify-between w-full h-[var(--header-height)] px-4 dark:border-b dark:border-[var(--gold)] bg-[var(--header-bg-light)] dark:bg-[var(--header-bg-dark)]">
       <div className="flex items-center gap-4">
         <div className="relative w-[50px] h-[60px]">
           <Logo src={logo} alt="Logo image" />
