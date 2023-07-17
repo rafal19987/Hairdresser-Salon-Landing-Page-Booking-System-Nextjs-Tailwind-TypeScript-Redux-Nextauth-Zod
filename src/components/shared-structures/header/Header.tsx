@@ -14,7 +14,7 @@ const permamentMarkerFont = Permanent_Marker({
 
 const Header = () => {
   return (
-    <header className="fixed top-0 flex items-center justify-center w-full border-b border-[var(--gold)] bg-[var(--header-bg-light)] dark:bg-[var(--header-bg-dark)] z-10">
+    <header className="fixed top-0 flex items-center justify-center w-full border-b border-[var(--gold)] bg-[var(--header-bg-light)] dark:bg-[var(--header-bg-dark)] z-20">
       <div className="relative flex items-center justify-between w-full h-[var(--header-height)] px-4 lg:max-w-[1600px]">
         <Link href={navigationRoutes[0].route}>
           <div className="flex items-center gap-4">
