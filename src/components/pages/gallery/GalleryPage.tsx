@@ -29,17 +29,18 @@ const images = [
 
 const GalleryPage = () => {
   return (
-    <div className="w-full py-12 px-8">
+    <div className="w-full px-4 py-12">
       <section className="w-full">
-        <ul className="flex flex-col gap-8 w-full">
+        <h2>Zdjecia</h2>
+        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2  xl:grid-cols-3 2xl:grid-cols-4 gap-12 w-full">
           {images.map((image, idx) => (
-            <li className="relative w-full h-96 rounded-3xl" key={idx + 1}>
+            <li className="relative w-full h-fit rounded-3xl" key={idx + 1}>
               <Image
-                className="rounded-3xl"
+                className="border border-gray-600 rounded-3xl object-contain"
                 src={image}
                 alt={`image${idx + 1}`}
-                fill
                 priority={true}
+                placeholder="blur"
               />
             </li>
           ))}
