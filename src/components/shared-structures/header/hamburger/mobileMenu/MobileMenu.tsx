@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import navigationRoutes from '@/helpers/routes/navigationRoutes';
 import { TNavigationRoutesProps } from '@/types/navigationRoutesTypes';
+import { usePathname } from 'next/navigation';
 
 const MobileMenu = ({
   isOpen,
@@ -9,6 +10,8 @@ const MobileMenu = ({
   isOpen: boolean;
   closeMenu: () => void;
 }) => {
+  const pathname = usePathname();
+
   return (
     <div
       className={`absolute top-full left-0 w-screen  bg-black text-white z-10 overflow-hidden transition-all duration-200 ${
@@ -22,7 +25,11 @@ const MobileMenu = ({
       >
         {navigationRoutes.map((route: TNavigationRoutesProps) => (
           <li key={route.routeName}>
-            <Link onClick={closeMenu} href={route.route}>
+            <Link
+              className={`${pathname === route.route && 'text-[var(--gold)]'}`}
+              onClick={closeMenu}
+              href={route.route}
+            >
               {route.routeName}
             </Link>
           </li>
