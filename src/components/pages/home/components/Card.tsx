@@ -6,12 +6,6 @@ import logoIcon from '@/assets/logo.svg';
 import manWithGlassesImg from '@/assets/man-with-glasses.png';
 import mainWithGlassesImgDesktop from '@/assets/man-with-glasses-big.png';
 import homeContent from '@/helpers/content/pages/home/homeContent';
-import { Permanent_Marker } from 'next/font/google';
-
-const permamentMarkerFont = Permanent_Marker({
-  subsets: ['latin'],
-  weight: '400',
-});
 
 const Card = () => {
   const { primaryAddress, secondaryAddress, phoneNumber } = homeContent;
@@ -19,7 +13,7 @@ const Card = () => {
   return (
     <section className="relative flex flex-col gap-6 items-center h-full w-full max-w-[500px] bg-black rounded-[30px] shadow-xl shadow-[var(--gray)] dark:shadow-[var(--gold)] lg:flex-row lg:w-[915px] lg:max-w-full lg:h-[494px] overflow-hidden">
       <div className="hidden lg:flex absolute top-8 right-8 items-center justify-end gap-6 w-2/4 z-10">
-        <div className={`${permamentMarkerFont.className} flex flex-col`}>
+        <div className="flex flex-col font-permanentMarker">
           <h2 className="text-4xl text-[var(--gold)]">Męska strefa</h2>
           <h3 className="text-xl text-[var(--gold)]">Poczuj się jak król</h3>
         </div>
