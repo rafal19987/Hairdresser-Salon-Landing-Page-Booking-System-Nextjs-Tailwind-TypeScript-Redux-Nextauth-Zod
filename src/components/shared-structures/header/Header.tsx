@@ -4,13 +4,7 @@ import Logo from '@/components/shared-atoms/logo/Logo';
 import ChangeThemeBtn from '@/components/shared-atoms/changeThemeBtn/ChangeThemeBtn';
 import Hamburger from '@/components/shared-structures/header/hamburger/Hamburger';
 import NavbarMenu from '@/components/shared-structures/header/navbarMenu/NavbarMenu';
-import { Permanent_Marker } from 'next/font/google';
 import logo from '@/assets/logo.svg';
-
-const permamentMarkerFont = Permanent_Marker({
-  subsets: ['latin'],
-  weight: '400',
-});
 
 const Header = () => {
   return (
@@ -21,9 +15,7 @@ const Header = () => {
             <div className="relative w-[50px] h-[60px]">
               <Logo src={logo} alt="Logo image" />
             </div>
-            <h1
-              className={`${permamentMarkerFont.className} text-[var(--gold)] text-lg`}
-            >
+            <h1 className="font-permanentMarker text-[var(--gold)] text-lg">
               Męska strefa
             </h1>
           </div>

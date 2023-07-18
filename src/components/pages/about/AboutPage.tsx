@@ -1,15 +1,9 @@
 import Image from 'next/image';
-import { Permanent_Marker } from 'next/font/google';
 import firstImage from '@/assets/about-page-first-image.jpg';
 import wiktoriaImage from '@/assets/employee-1-face-image-big.png';
 import agnieszkaImage from '@/assets/employee-2-face-image-big.png';
 import combIcon from '@/assets/comb-icon.svg';
 import salonImage from '@/assets/salon-image.jpg';
-
-const permamentMarkerFont = Permanent_Marker({
-  subsets: ['latin'],
-  weight: '400',
-});
 
 const AboutPage = () => {
   return (
@@ -30,7 +24,7 @@ const AboutPage = () => {
         <div className="relative w-full h-[273px] mt-8 rounded-3xl overflow-hidden">
           <Image src={firstImage} alt="fingers" fill />
         </div>
-        <p className={`${permamentMarkerFont.className} mt-5 text-sm`}>
+        <p className="mt-5 text-sm font-permanentMarker">
           Fryzjerstwo to sztuka przekształcania włosów w dzieło sztuki. ~Vidal
           Sassoon{' '}
         </p>
@@ -41,9 +35,7 @@ const AboutPage = () => {
             <div className="relative w-[155px] h-[220px] rounded-3xl overflow-hidden">
               <Image src={wiktoriaImage} alt="Wiktoria image" fill />
             </div>
-            <span className={`${permamentMarkerFont.className} p-2 text-xl`}>
-              Wiktoria
-            </span>
+            <span className="p-2 text-xl font-permanentMarker">Wiktoria</span>
           </div>
           <p className="ml-6 text-base ">
             Nieustannie podążamy za najnowszymi trendami i technikami
@@ -70,9 +62,7 @@ const AboutPage = () => {
                 alt="comb icon"
               />
             </div>
-            <span
-              className={`${permamentMarkerFont.className} self-end p-2 text-xl`}
-            >
+            <span className="self-end p-2 text-xl font-permanentMarker">
               Agnieszka
             </span>
           </div>
@@ -95,12 +85,11 @@ const AboutPage = () => {
         </div>
         <p className="mt-8">
           <span
-            className={`${permamentMarkerFont.className} before:content-['"'] after:content-['"']`}
+            className={`font-permanentMarker before:content-['"'] after:content-['"']`}
           >
             W fryzjerstwie chodzi o tworzenie piękna, ale takżo o wpływanie na
-            ludzkie samopoczucie i pewność siebie
+            ludzkie samopoczucie i pewność siebie. ~Sam mcknight
           </span>{' '}
-          ~Sam mcknight
         </p>
       </section>
     </div>
