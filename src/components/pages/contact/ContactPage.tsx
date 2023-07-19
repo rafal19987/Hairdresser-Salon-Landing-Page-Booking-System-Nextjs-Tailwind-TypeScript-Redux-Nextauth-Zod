@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import ContactForm from './ContactForm';
+import ContactForm from '@/components/pages/contact/componenets/contactForm/ContactForm';
 import employee1 from '@/assets/employee-1-face-image-big.png';
 import employee2 from '@/assets/employee-2-face-image-big.png';
 import googleMapsScreen from '@/assets/google-map-screen.png';
