@@ -31,9 +31,7 @@ const ContactForm = () => {
     register,
     handleSubmit,
     reset,
-    watch,
     getFieldState,
-
     formState: { isDirty, errors, isSubmitting, isValid, isSubmitSuccessful },
   } = useForm<TFormSchema>({
     resolver: zodResolver(formSchema),
@@ -45,11 +43,8 @@ const ContactForm = () => {
     },
   });
 
-  const name = watch('name');
   const nameState = getFieldState('name');
-  const phoneNumber = watch('phoneNumber');
   const phoneNumberState = getFieldState('phoneNumber');
-  const message = watch('message');
   const messageState = getFieldState('message');
 
   const onSubmit: SubmitHandler<TFormSchema> = (data) => {
@@ -67,13 +62,8 @@ const ContactForm = () => {
         type="text"
         id="name"
         className={`h-12 mt-2 p-4 border 
-        ${!nameState.isDirty && ' border-neutral-500'}
-        ${name.length > 0 && name.length < 4 && 'border-red-500'}
-        ${
-          !nameState.invalid &&
-          nameState.isDirty &&
-          'border-green-500 text-green-500'
-        }
+        ${errors.name ? 'border-red-500' : 'border-green-500 text-green-500'}
+        ${!nameState.isDirty && ' border-neutral-500 text-neutral-500'}
         bg-transparent  placeholder:text-neutral-500 outline-none`}
         placeholder="Podaj imię"
         aria-invalid={errors.name ? 'true' : 'false'}
@@ -91,13 +81,13 @@ const ContactForm = () => {
         type="text"
         id="phoneNumber"
         className={`h-12 mt-2 p-4 border 
-        ${!phoneNumberState.isDirty && ' border-neutral-500'}
-        ${phoneNumber.length > 0 && phoneNumber.length < 9 && 'border-red-500'} 
         ${
-          !phoneNumberState.invalid &&
-          phoneNumberState.isDirty &&
-          'border-green-500 text-green-500'
+          errors.phoneNumber
+            ? 'border-red-500'
+            : 'border-green-500 text-green-500'
         }
+        ${!phoneNumberState.isDirty && ' border-neutral-500 text-neutral-500'}
+        
         bg-transparent  placeholder:text-neutral-500 outline-none`}
         placeholder="Podaj numer telefonu"
         aria-invalid={errors.phoneNumber ? 'true' : 'false'}
@@ -113,13 +103,8 @@ const ContactForm = () => {
         {...register('message')}
         id="message"
         className={`h-24 mt-2 p-4 border 
-        ${!messageState.isDirty && ' border-neutral-500'}
-        ${message.length > 0 && message.length < 10 && 'border-red-500'} 
-        ${
-          !messageState.invalid &&
-          messageState.isDirty &&
-          'border-green-500 text-green-500'
-        }
+        ${errors.message ? 'border-red-500' : 'border-green-500 text-green-500'}
+        ${!messageState.isDirty && ' border-neutral-500 text-neutral-500'}
         bg-transparent  placeholder:text-neutral-500 outline-none`}
         placeholder="Napisz co Ci leży na duszy"
         aria-invalid={errors.message ? 'true' : 'false'}
@@ -127,7 +112,6 @@ const ContactForm = () => {
       <span className="w-full h-6 mt-1 text-sm text-red-500">
         {errors.message?.message}
       </span>
-
       <button
         disabled={!isDirty || isSubmitting}
         onClick={() => reset()}
