@@ -3,6 +3,7 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import Label from './Label';
 
 const phoneRegex = new RegExp(
   /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/
@@ -21,7 +22,7 @@ const formSchema = z.object({
   message: z
     .string()
     .min(10, { message: 'Wiadomość musi zawierać przynajmniej 10 znaków' })
-    .max(40, { message: 'Maksymalna długość wiadomości to 40 znaków' }),
+    .max(150, { message: 'Maksymalna długość wiadomości to 150 znaków' }),
 });
 
 type TFormSchema = z.infer<typeof formSchema>;
@@ -54,15 +55,17 @@ const ContactForm = () => {
 
   return (
     <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
-      <label className="text-xl text-neutral-300" htmlFor="imie">
-        Imię:
-      </label>
+      <Label htmlFor="imie" value="Imię" />
       <input
         {...register('name')}
         type="text"
         id="name"
         className={`h-12 mt-2 p-4 border 
-        ${errors.name ? 'border-red-500' : 'border-green-500 text-green-500'}
+        ${
+          errors.name
+            ? 'border-red-500'
+            : 'border-[var(--gold)] text-[var(--gold)]'
+        }
         ${!nameState.isDirty && ' border-neutral-500 text-neutral-500'}
         bg-transparent  placeholder:text-neutral-500 outline-none`}
         placeholder="Podaj imię"
@@ -73,9 +76,7 @@ const ContactForm = () => {
         {errors.name?.message}
       </span>
 
-      <label className="mt-1 text-xl text-neutral-300" htmlFor="phoneNumber">
-        Number telefonu:
-      </label>
+      <Label htmlFor="phoneNumber" value="Number telefonu" />
       <input
         {...register('phoneNumber')}
         type="text"
@@ -84,7 +85,7 @@ const ContactForm = () => {
         ${
           errors.phoneNumber
             ? 'border-red-500'
-            : 'border-green-500 text-green-500'
+            : 'border-[var(--gold)] text-[var(--gold)]'
         }
         ${!phoneNumberState.isDirty && ' border-neutral-500 text-neutral-500'}
         
@@ -96,14 +97,17 @@ const ContactForm = () => {
         {errors.phoneNumber?.message}
       </span>
 
-      <label className="mt-1 text-xl text-neutral-300" htmlFor="message">
-        Wiadomość:
-      </label>
+      <Label htmlFor="message" value="Wiadomość" />
+
       <textarea
         {...register('message')}
         id="message"
         className={`h-24 mt-2 p-4 border 
-        ${errors.message ? 'border-red-500' : 'border-green-500 text-green-500'}
+        ${
+          errors.message
+            ? 'border-red-500'
+            : 'border-[var(--gold)] text-[var(--gold)]'
+        }
         ${!messageState.isDirty && ' border-neutral-500 text-neutral-500'}
         bg-transparent  placeholder:text-neutral-500 outline-none`}
         placeholder="Napisz co Ci leży na duszy"
@@ -112,10 +116,11 @@ const ContactForm = () => {
       <span className="w-full h-6 mt-1 text-sm text-red-500">
         {errors.message?.message}
       </span>
+
       <button
         disabled={!isDirty || isSubmitting}
         onClick={() => reset()}
-        className="w-1/5 h-12 mt-3 border border-[var(--gold)] disabled:border-neutral-500 text-[var(--gold)] disabled:text-neutral-500 disabled:cursor-not-allowed transition-colors duration-200"
+        className="w-28 md:w-1/5 h-12 mt-3 border border-green-300 disabled:border-neutral-800 text-green-300 disabled:text-neutral-800 disabled:cursor-not-allowed transition-colors duration-200"
       >
         Wyczyść
       </button>
@@ -124,10 +129,10 @@ const ContactForm = () => {
         className={`self-end w-[200px] h-[55px] mt-8 border ${
           isValid
             ? 'border-[var(--gold)] text-[var(--gold)] shadow-cardShadow hover:cursor-pointer hover:translate-y-2 hover:-translate-x-2 '
-            : 'disabled:border-neutral-500 disabled:text-neutral-500 disabled:shadow-none disabled:cursor-not-allowed'
+            : 'disabled:border-neutral-800 disabled:text-neutral-800 disabled:shadow-none disabled:cursor-not-allowed'
         } text-xl hover:shadow-none transition-all duration-300`}
         type="submit"
-        value={isValid ? 'Wyślij' : 'Uzupełnij dane'}
+        value="Wyślij"
       />
     </form>
   );
