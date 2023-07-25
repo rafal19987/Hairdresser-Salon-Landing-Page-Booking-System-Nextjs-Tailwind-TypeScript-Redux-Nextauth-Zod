@@ -91,14 +91,32 @@ const services: TService[] = [
   },
 ];
 
+type sorted = {
+  sortedBy: 'idle' | 'ascending' | 'descending';
+};
+
 const PricesPage = () => {
-  const [data, setData] = useState(services);
-  const [filteredData, setFilteredData] = useState(data);
+  const initialState = services;
+  const [data, setData] = useState(initialState);
+  const [sortedBy, setSortedBy] = useState<sorted>({ sortedBy: 'idle' });
   const [date, setDate] = useState(() => new Date());
-  const sortByPrice = () => {
-    const sortedData = [...filteredData];
-    sortedData.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
-    setFilteredData(sortedData);
+
+  const handleSort = () => {
+    const sortedData = [...data];
+
+    if (sortedBy.sortedBy === 'idle' || sortedBy.sortedBy === 'ascending') {
+      sortedData.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+      setSortedBy({ sortedBy: 'descending' });
+      console.log(sortedBy);
+      return setData(sortedData);
+    }
+
+    if (sortedBy.sortedBy === 'descending') {
+      sortedData.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+      setSortedBy({ sortedBy: 'ascending' });
+      console.log(sortedBy);
+      return setData(sortedData);
+    }
   };
 
   let month = date.getMonth();
@@ -135,17 +153,29 @@ const PricesPage = () => {
         <table className="w-full h-full cursor-default">
           <caption className="p-4 text-xl">Lista dostępnych usług</caption>
           <thead className="border-b border-gray-600">
-            <tr className="uppercase text-gray-400">
+            <tr className="uppercase text-gray-400 ">
               <th className="p-4 text-start">Usługa</th>
               <th
                 className="text-start hover:cursor-pointer"
-                onClick={sortByPrice}
+                onClick={handleSort}
               >
                 <div className="flex items-center gap-2 w-40 group ">
-                  <span className="">Cena</span>
-                  <div className="group-hover:text-slate-700">
-                    <BiUpArrow className="hover:text-red-500" />
-                    <BiDownArrow className="hover:text-red-500" />
+                  <span className="group-hover:text-slate-700 transition-colors">
+                    Cena
+                  </span>
+                  <div>
+                    <BiUpArrow
+                      className={`${
+                        sortedBy.sortedBy === 'ascending' &&
+                        'text-[var(--gold)]'
+                      } transition-colors`}
+                    />
+                    <BiDownArrow
+                      className={`${
+                        sortedBy.sortedBy === 'descending' &&
+                        'text-[var(--gold)]'
+                      } transition-colors`}
+                    />
                   </div>
                 </div>
               </th>
@@ -154,10 +184,10 @@ const PricesPage = () => {
             </tr>
           </thead>
           <tbody>
-            {filteredData.map((service: TService) => (
+            {data.map((service: TService) => (
               <tr
                 key={service.id}
-                className="p-4 hover:bg-neutral-800 border-b border-gray-700 text-white transition-colors duration-200 "
+                className="h-24 p-4 hover:bg-neutral-800 border-b border-gray-700 text-white transition-colors duration-200 "
               >
                 <td className="p-4">{service.service}</td>
                 <td className="">{service.price}</td>
