@@ -107,14 +107,12 @@ const PricesPage = () => {
     if (sortedBy.sortedBy === 'idle' || sortedBy.sortedBy === 'ascending') {
       sortedData.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
       setSortedBy({ sortedBy: 'descending' });
-      console.log(sortedBy);
       return setData(sortedData);
     }
 
     if (sortedBy.sortedBy === 'descending') {
       sortedData.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
       setSortedBy({ sortedBy: 'ascending' });
-      console.log(sortedBy);
       return setData(sortedData);
     }
   };
@@ -140,8 +138,42 @@ const PricesPage = () => {
     case 0:
       thisMonth = months[0];
       break;
+    case 1:
+      thisMonth = months[1];
+      break;
+    case 2:
+      thisMonth = months[2];
+      break;
+    case 3:
+      thisMonth = months[3];
+      break;
+    case 4:
+      thisMonth = months[4];
+      break;
+    case 5:
+      thisMonth = months[5];
+      break;
+
     case 6:
       thisMonth = months[6];
+      break;
+    case 7:
+      thisMonth = months[7];
+      break;
+
+    case 8:
+      thisMonth = months[8];
+      break;
+
+    case 9:
+      thisMonth = months[9];
+      break;
+
+    case 10:
+      thisMonth = months[10];
+      break;
+    case 11:
+      thisMonth = months[11];
       break;
     default:
       console.log('Ssij');
@@ -150,16 +182,16 @@ const PricesPage = () => {
   return (
     <div className="w-full h-full p-4">
       <div>
-        <table className="w-full h-full cursor-default">
+        <table className="w-full h-full cursor-default select-none">
           <caption className="p-4 text-xl">Lista dostępnych usług</caption>
           <thead className="border-b border-gray-600">
             <tr className="uppercase text-gray-400 ">
               <th className="p-4 text-start">Usługa</th>
-              <th
-                className="text-start hover:cursor-pointer"
-                onClick={handleSort}
-              >
-                <div className="flex items-center gap-2 w-40 group ">
+              <th className="w-40 text-start">
+                <div
+                  className="flex items-center gap-2 w-fit h-full group hover:cursor-pointer"
+                  onClick={handleSort}
+                >
                   <span className="group-hover:text-slate-700 transition-colors">
                     Cena
                   </span>
