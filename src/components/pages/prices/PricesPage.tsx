@@ -2,104 +2,19 @@
 
 import { useState } from 'react';
 import { BiDownArrow, BiUpArrow } from 'react-icons/bi';
-
-type TService = {
-  id: number;
-  service: string;
-  price: string;
-  performer: string[];
-};
-
-const services: TService[] = [
-  {
-    id: 1,
-    service: 'Strzyżenie męskie - broda',
-    price: '50.00 zł',
-    performer: ['Agnieszka'],
-  },
-  {
-    id: 2,
-    service: 'Strzyżenie męskie - bródka',
-    price: '20.00 zł',
-    performer: ['Agnieszka'],
-  },
-  {
-    id: 3,
-    service: 'Strzyżenie męskie - klasyczne',
-    price: '60.00 zł',
-    performer: ['Wiktoria', 'Agnieszka'],
-  },
-  {
-    id: 4,
-    service: 'Strzyżenie męskie - klasyczne - włosy długie',
-    price: '80.00 zł',
-    performer: ['Wiktoria', 'Agnieszka'],
-  },
-  {
-    id: 5,
-    service: 'Strzyżenie męskie - klasyczne + broda',
-    price: '95.00 zł',
-    performer: ['Agnieszka'],
-  },
-  {
-    id: 6,
-    service: 'Strzyżenie męskie - klasyczne + fade',
-    price: '65.00 zł',
-    performer: ['Wiktoria', 'Agnieszka'],
-  },
-  {
-    id: 7,
-    service: 'Strzyżenie męskie - klasyczne + skinfade',
-    price: '70.00 zł',
-    performer: ['Wiktoria', 'Agnieszka'],
-  },
-  {
-    id: 8,
-    service: 'Strzyżenie męskie - klasyczne + koloryzacja',
-    price: '140.00 zł',
-    performer: ['Wiktoria'],
-  },
-  {
-    id: 9,
-    service: 'Strzyżenie męskie - maszynką - 0-3mm',
-    price: '45.00 zł',
-    performer: ['Wiktoria', 'Agnieszka'],
-  },
-  {
-    id: 10,
-    service: 'Strzyżenie męskie - maszynką - 6-18mm',
-    price: '50.00 zł',
-    performer: ['Wiktoria', 'Agnieszka'],
-  },
-  {
-    id: 11,
-    service: 'Strzyżenie męskie - wąs',
-    price: '15.00 zł',
-    performer: ['Wiktoria', 'Agnieszka'],
-  },
-  {
-    id: 12,
-    service: 'Woskowanie - Nos/Uszy',
-    price: '15.00 zł',
-    performer: ['Wiktoria', 'Agnieszka'],
-  },
-  {
-    id: 13,
-    service: 'Strzyżenie dzieci do 4 lat',
-    price: '50.00 zł',
-    performer: ['Wiktoria'],
-  },
-];
+import SERVICES from '@/helpers/constants/services';
+import { TServiceProps } from '@/types/serviceTypes';
+import getTodayDate from '@/helpers/functions/getTodayDate';
 
 type sorted = {
   sortedBy: 'idle' | 'ascending' | 'descending';
 };
 
 const PricesPage = () => {
-  const initialState = services;
+  const initialState = SERVICES;
   const [data, setData] = useState(initialState);
   const [sortedBy, setSortedBy] = useState<sorted>({ sortedBy: 'idle' });
-  const [date, setDate] = useState(() => new Date());
+  const todayDate = getTodayDate();
 
   const handleSort = () => {
     const sortedData = [...data];
@@ -116,68 +31,6 @@ const PricesPage = () => {
       return setData(sortedData);
     }
   };
-
-  let month = date.getMonth();
-  let thisMonth = null;
-  const months = [
-    'Styczeń',
-    'Luty',
-    'Marzec',
-    'Kwiecień',
-    'Maj',
-    'Czerwiec',
-    'Lipiec',
-    'Sierpień',
-    'Wrzesień',
-    'Październik',
-    'Listopad',
-    'Grudzień',
-  ];
-
-  switch (month) {
-    case 0:
-      thisMonth = months[0];
-      break;
-    case 1:
-      thisMonth = months[1];
-      break;
-    case 2:
-      thisMonth = months[2];
-      break;
-    case 3:
-      thisMonth = months[3];
-      break;
-    case 4:
-      thisMonth = months[4];
-      break;
-    case 5:
-      thisMonth = months[5];
-      break;
-
-    case 6:
-      thisMonth = months[6];
-      break;
-    case 7:
-      thisMonth = months[7];
-      break;
-
-    case 8:
-      thisMonth = months[8];
-      break;
-
-    case 9:
-      thisMonth = months[9];
-      break;
-
-    case 10:
-      thisMonth = months[10];
-      break;
-    case 11:
-      thisMonth = months[11];
-      break;
-    default:
-      console.log('Ssij');
-  }
 
   return (
     <div className="w-full h-full p-4">
@@ -216,7 +69,7 @@ const PricesPage = () => {
             </tr>
           </thead>
           <tbody>
-            {data.map((service: TService) => (
+            {data.map((service: TServiceProps) => (
               <tr
                 key={service.id}
                 className="h-24 p-4 hover:bg-neutral-800 border-b border-gray-700 text-white transition-colors duration-200 "
@@ -239,8 +92,8 @@ const PricesPage = () => {
                     onClick={() => {
                       console.log(
                         `Wybrano usługę: ${
-                          services[service.id].service
-                        } o id = ${services[service.id].id}`
+                          SERVICES[service.id].service
+                        } o id = ${SERVICES[service.id].id}`
                       );
                     }}
                   >
@@ -254,10 +107,7 @@ const PricesPage = () => {
             {' '}
             <tr>
               <td className="py-2 px-5 text-center" colSpan={4}>
-                <span>
-                  Cennik aktualny na dzień {date.getDate()} {thisMonth}{' '}
-                  {date.getFullYear()}
-                </span>
+                <span>Cennik aktualny na dzień {todayDate}</span>
               </td>
             </tr>
           </tfoot>
