@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { BiDownArrow, BiUpArrow } from 'react-icons/bi';
 
 type TService = {
   id: number;
@@ -94,7 +95,6 @@ const PricesPage = () => {
   const [data, setData] = useState(services);
   const [filteredData, setFilteredData] = useState(data);
   const [date, setDate] = useState(() => new Date());
-
   const sortByPrice = () => {
     const sortedData = [...filteredData];
     sortedData.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
@@ -130,29 +130,26 @@ const PricesPage = () => {
   }
 
   return (
-    <div className="w-full h-full p-4 border">
+    <div className="w-full h-full p-4">
       <div>
-        <table className="w-full h-full">
-          <caption className="p-4 text-xl">
-            Tabela dostępnych usług w naszym salonie
-          </caption>
-          <thead>
-            <tr className="bg-slate-500 uppercase ">
-              <th className="p-4 text-start hover:cursor-default">Usługa</th>
+        <table className="w-full h-full cursor-default">
+          <caption className="p-4 text-xl">Lista dostępnych usług</caption>
+          <thead className="border-b border-gray-600">
+            <tr className="uppercase text-gray-400">
+              <th className="p-4 text-start">Usługa</th>
               <th
-                className="text-start hover:cursor-pointer hover:text-slate-700"
+                className="text-start hover:cursor-pointer"
                 onClick={sortByPrice}
               >
-                Cena
+                <div className="flex items-center gap-2 w-40 group ">
+                  <span className="">Cena</span>
+                  <div className="group-hover:text-slate-700">
+                    <BiUpArrow className="hover:text-red-500" />
+                    <BiDownArrow className="hover:text-red-500" />
+                  </div>
+                </div>
               </th>
-              <th
-                className="text-start hover:cursor-pointer hover:text-slate-700"
-                onClick={() => {
-                  setFilteredData(data);
-                }}
-              >
-                Dostępne u
-              </th>
+              <th className="text-start w-40">Dostępne u</th>
               <th></th>
             </tr>
           </thead>
@@ -160,36 +157,32 @@ const PricesPage = () => {
             {filteredData.map((service: TService) => (
               <tr
                 key={service.id}
-                className="p-4 bg-slate-600 even:bg-slate-700 hover:bg-slate-800"
+                className="p-4 hover:bg-neutral-800 border-b border-gray-700 text-white transition-colors duration-200 "
               >
-                <td className="p-4 hover:cursor-default">{service.service}</td>
-                <td className="hover:cursor-default">{service.price}</td>
+                <td className="p-4">{service.service}</td>
+                <td className="">{service.price}</td>
                 <td className="py-4">
                   <ul className="flex flex-col gap-2">
                     {service.performer.map((performer) => (
                       // eslint-disable-next-line
-                      <li className="w-fit text-blue-300 hover:text-blue-500 hover:cursor-pointer">
-                        <span
-                          onClick={() => {
-                            setFilteredData(
-                              data.filter((d) => d.performer[0] === performer)
-                            );
-                          }}
-                        >
-                          {performer}
-                        </span>
+                      <li className="w-fit">
+                        <span>{performer}</span>
                       </li>
                     ))}
                   </ul>
                 </td>
                 <td>
                   <button
-                    className="h-12 px-2 bg-slate-900 rounded-lg text-blue-300 hover:text-blue-500 hover:cursor-pointer"
+                    className="h-12 px-2 text-[var(--gold)] hover:text-yellow-100 hover:cursor-pointer"
                     onClick={() => {
-                      console.log(services[service.id - 1].service);
+                      console.log(
+                        `Wybrano usługę: ${
+                          services[service.id].service
+                        } o id = ${services[service.id].id}`
+                      );
                     }}
                   >
-                    Zarezewuj
+                    Umów się
                   </button>
                 </td>
               </tr>
@@ -198,9 +191,11 @@ const PricesPage = () => {
           <tfoot>
             {' '}
             <tr>
-              <td className="py-2 px-5 border text-center" colSpan={4}>
-                Cennik aktualny na dzień {date.getDate()} {thisMonth}{' '}
-                {date.getFullYear()}
+              <td className="py-2 px-5 text-center" colSpan={4}>
+                <span>
+                  Cennik aktualny na dzień {date.getDate()} {thisMonth}{' '}
+                  {date.getFullYear()}
+                </span>
               </td>
             </tr>
           </tfoot>
