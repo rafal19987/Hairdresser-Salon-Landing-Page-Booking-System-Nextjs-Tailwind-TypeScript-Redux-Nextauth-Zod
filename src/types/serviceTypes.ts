@@ -3,4 +3,5 @@ export type TServiceProps = {
   service: string;
   price: string;
   performer: string[];
+  serviceTime: string;
 };
