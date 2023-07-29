@@ -1,5 +1,6 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { BiDownArrow, BiUpArrow } from 'react-icons/bi';
 import SERVICES from '@/helpers/constants/services';
@@ -11,6 +12,7 @@ type sorted = {
 };
 
 const PricesPage = () => {
+  const router = useRouter();
   const initialState = SERVICES;
   const [data, setData] = useState(initialState);
   const [sortedBy, setSortedBy] = useState<sorted>({ sortedBy: 'idle' });
@@ -90,6 +92,7 @@ const PricesPage = () => {
                   <button
                     className="h-12 px-2 text-[var(--gold)] hover:text-yellow-100 hover:cursor-pointer"
                     onClick={() => {
+                      router.push(`/book-visit/${service.id}`);
                       console.log(
                         `Wybrano usługę: ${
                           SERVICES[service.id].service
