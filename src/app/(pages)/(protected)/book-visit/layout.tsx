@@ -54,8 +54,14 @@ export default function ProtectedRoutesLayout({
                       className="h-24 p-4 hover:bg-neutral-200 border-b border-[#B7B7B7] text-[#878787] transition-colors duration-200 "
                     >
                       <td className="p-4">{service.service}</td>
-                      <td className="text-black">{service.price}</td>
-
+                      <td className="flex flex-col items-end justify-center w-24 h-full text-black">
+                        <span className="text-black text-xl">
+                          {service.price}
+                        </span>
+                        <span className=" text-[#888] text-sm">
+                          {service.serviceTime}
+                        </span>
+                      </td>
                       <td>
                         <button
                           className="w-20 p-2 text-white bg-black rounded-lg hover:bg-neutral-700 transition-colors duration-200"
