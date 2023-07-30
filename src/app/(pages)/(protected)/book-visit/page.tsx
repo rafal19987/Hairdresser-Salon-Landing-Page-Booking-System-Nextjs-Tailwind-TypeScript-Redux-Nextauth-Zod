@@ -1,5 +1,5 @@
-const BookVisit = ({ children }: { children: React.ReactNode }) => {
-  return <div>{children}</div>;
+const page = () => {
+  return <div></div>;
 };
 
-export default BookVisit;
+export default page;
