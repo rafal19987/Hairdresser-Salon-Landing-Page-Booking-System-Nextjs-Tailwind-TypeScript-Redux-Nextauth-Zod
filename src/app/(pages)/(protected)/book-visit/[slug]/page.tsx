@@ -54,7 +54,7 @@ const BookSpecificServiePage = ({ params }: { params: { slug: number } }) => {
           </div>
           {/* Carousel with days of month  */}
           <div className="w-4/5 h-full">
-            <ul className="flex whitespace-nowrap items-center gap-4 w-full h-full overflow-x-auto  flex-shrink-0">
+            <ul className="flex whitespace-nowrap items-center gap-4 w-full h-full overflow-x-auto  flex-shrink-0 no-scrollbar">
               <li className="inline-block w-28 h-full flex-shrink-0">
                 <div
                   tabIndex={2}
@@ -222,7 +222,7 @@ const BookSpecificServiePage = ({ params }: { params: { slug: number } }) => {
           </div>
           {/* Carousel with days of month  */}
           <div className="w-4/5 h-full">
-            <ul className="flex whitespace-nowrap items-center gap-4 w-full h-full overflow-x-auto  flex-shrink-0">
+            <ul className="flex whitespace-nowrap items-center gap-4 w-full h-full overflow-x-auto  flex-shrink-0 no-scrollbar">
               <li className="inline-block w-28 h-full flex-shrink-0">
                 <div
                   tabIndex={6}
