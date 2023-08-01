@@ -54,7 +54,10 @@ const ContactForm = () => {
   };
 
   return (
-    <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className="flex flex-col w-full lg:w-[800px]"
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <Label htmlFor="imie" value="Imię" />
       <input
         {...register('name')}
