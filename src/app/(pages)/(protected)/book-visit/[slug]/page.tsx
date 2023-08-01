@@ -5,10 +5,19 @@ import Image from 'next/image';
 import SERVICES from '@/helpers/constants/services';
 import { TServiceProps } from '@/types/serviceTypes';
 import navigationArrowIcon from '@/assets/navigation-arrow-icon.svg';
+import getTodayDate from '@/helpers/functions/getTodayDate';
+import Carousel from '@/components/pages/book-visit/components/carousel/Carousel';
 
 const BookSpecificServiePage = ({ params }: { params: { slug: number } }) => {
   const router = useRouter();
   const services: TServiceProps[] = SERVICES;
+  const today = getTodayDate();
+
+  /* 
+  console.log('Number of days in this month', daysOfMonth);
+  console.log('This is month number', month);
+  console.log('Year', year);
+  console.log('days in month', daysInMonth(year, month)); */
 
   return (
     <div className="absolute flex items-center justify-center w-screen h-5/6 mt-10 p-20 bg-gray-500 bg-opacity-80 z-10">
@@ -22,9 +31,9 @@ const BookSpecificServiePage = ({ params }: { params: { slug: number } }) => {
           <span className="absolute top-[10px] left-0 h-1 w-6 bg-[#626262] -rotate-45 group-hover:bg-black transition-colors" />
           <span className="absolute top-[10px] h-1 w-6 bg-[#626262] rotate-45 group-hover:bg-black transition-colors" />
         </div>
-        <p className="mt-8 text-xl text-black font-bold">Sierpień 2023</p>
+        <p className="mt-8 text-xl text-black font-bold">{today}</p>
         {/* Section with selecting visit day  */}
-        <div className="relative flex  items-center justify-center w-[740px] h-[150px] mt-8">
+        <div className="relative flex  items-center justify-center w-[740px] h-[120px] mt-8">
           {/* Button for navigation to left */}
           <div className="absolute left-0 w-10 h-10 rounded-full overflow-hidden shadow-md">
             <button
@@ -54,140 +63,7 @@ const BookSpecificServiePage = ({ params }: { params: { slug: number } }) => {
           </div>
           {/* Carousel with days of month  */}
           <div className="w-4/5 h-full">
-            <ul className="flex whitespace-nowrap items-center gap-4 w-full h-full overflow-x-auto  flex-shrink-0 no-scrollbar">
-              <li className="inline-block w-28 h-full flex-shrink-0">
-                <div
-                  tabIndex={2}
-                  className="flex flex-col items-center justify-center w-full h-full rounded-lg border border-neutral-100 hover:cursor-pointer hover:border-[#218cac] transition-colors"
-                >
-                  <span className="text-xl font-medium">Pon</span>
-                  <span className="text-xl font-medium">1</span>
-                </div>
-              </li>
-              <li className="inline-block w-28 h-full flex-shrink-0">
-                <div
-                  tabIndex={3}
-                  className="flex flex-col items-center justify-center w-full h-full rounded-lg border border-neutral-100 hover:cursor-pointer hover:border-[#218cac] transition-colors"
-                >
-                  <span className="text-xl font-medium">Wt</span>
-                  <span className="text-xl font-medium">2</span>
-                </div>
-              </li>
-              <li className="inline-block w-28 h-full flex-shrink-0">
-                <div className="flex flex-col items-center justify-center w-full h-full rounded-lg border border-neutral-100 hover:cursor-pointer hover:border-[#218cac] transition-colors">
-                  <span className="text-xl font-medium">Śr</span>
-                  <span className="text-xl font-medium">3</span>
-                </div>
-              </li>
-              <li className="inline-block w-28 h-full flex-shrink-0">
-                <div className="flex flex-col items-center justify-center w-full h-full rounded-lg border border-neutral-100 hover:cursor-pointer hover:border-[#218cac] transition-colors">
-                  <span className="text-xl font-medium">Czw</span>
-                  <span className="text-xl font-medium">4</span>
-                </div>
-              </li>
-              <li className="inline-block w-28 h-full flex-shrink-0">
-                <div className="flex flex-col items-center justify-center w-full h-full rounded-lg border border-neutral-100 hover:cursor-pointer hover:border-[#218cac] transition-colors">
-                  <span className="text-xl font-medium">Pt</span>
-                  <span className="text-xl font-medium">5</span>
-                </div>
-              </li>
-              <li className="inline-block w-28 h-full flex-shrink-0">
-                <div className="flex flex-col items-center justify-center w-full h-full rounded-lg border border-neutral-100 hover:cursor-pointer hover:border-[#218cac] transition-colors">
-                  <span className="text-xl font-medium">Sob</span>
-                  <span className="text-xl font-medium">6</span>
-                </div>
-              </li>
-              <li className="inline-block w-28 h-full flex-shrink-0">
-                <div className="flex flex-col items-center justify-center w-full h-full rounded-lg border border-neutral-100 hover:cursor-pointer hover:border-[#218cac] transition-colors">
-                  <span className="text-xl font-medium">Ndz</span>
-                  <span className="text-xl font-medium">13</span>
-                </div>
-              </li>
-              <li className="inline-block w-28 h-full flex-shrink-0">
-                <div className="flex flex-col items-center justify-center w-full h-full rounded-lg border border-neutral-100 hover:cursor-pointer hover:border-[#218cac] transition-colors">
-                  <span className="text-xl font-medium">Pon</span>
-                  <span className="text-xl font-medium">14</span>
-                </div>
-              </li>
-              <li className="inline-block w-28 h-full flex-shrink-0">
-                <div className="flex flex-col items-center justify-center w-full h-full rounded-lg border border-neutral-100 hover:cursor-pointer hover:border-[#218cac] transition-colors">
-                  <span className="text-xl font-medium">Wt</span>
-                  <span className="text-xl font-medium">15</span>
-                </div>
-              </li>
-              <li className="inline-block w-28 h-full flex-shrink-0">
-                <div className="flex flex-col items-center justify-center w-full h-full rounded-lg border border-neutral-100 hover:cursor-pointer hover:border-[#218cac] transition-colors">
-                  <span className="text-xl font-medium">Śr</span>
-                  <span className="text-xl font-medium">16</span>
-                </div>
-              </li>
-              <li className="inline-block w-28 h-full flex-shrink-0">
-                <div className="flex flex-col items-center justify-center w-full h-full rounded-lg border border-neutral-100 hover:cursor-pointer hover:border-[#218cac] transition-colors">
-                  <span className="text-xl font-medium">Czw</span>
-                  <span className="text-xl font-medium">17</span>
-                </div>
-              </li>
-              <li className="inline-block w-28 h-full flex-shrink-0">
-                <div className="flex flex-col items-center justify-center w-full h-full rounded-lg border border-neutral-100 hover:cursor-pointer hover:border-[#218cac] transition-colors">
-                  <span className="text-xl font-medium">Pt</span>
-                  <span className="text-xl font-medium">18</span>
-                </div>
-              </li>
-              <li className="inline-block w-28 h-full flex-shrink-0">
-                <div className="flex flex-col items-center justify-center w-full h-full rounded-lg border border-neutral-100 hover:cursor-pointer hover:border-[#218cac] transition-colors">
-                  <span className="text-xl font-medium">Sob</span>
-                  <span className="text-xl font-medium">19</span>
-                </div>
-              </li>
-              <li className="inline-block w-28 h-full flex-shrink-0">
-                <div className="flex flex-col items-center justify-center w-full h-full rounded-lg border border-neutral-100 hover:cursor-pointer hover:border-[#218cac] transition-colors">
-                  <span className="text-xl font-medium">Ndz</span>
-                  <span className="text-xl font-medium">20</span>
-                </div>
-              </li>
-              <li className="inline-block w-28 h-full flex-shrink-0">
-                <div className="flex flex-col items-center justify-center w-full h-full rounded-lg border border-neutral-100 hover:cursor-pointer hover:border-[#218cac] transition-colors">
-                  <span className="text-xl font-medium">Pon</span>
-                  <span className="text-xl font-medium">21</span>
-                </div>
-              </li>
-              <li className="inline-block w-28 h-full flex-shrink-0">
-                <div className="flex flex-col items-center justify-center w-full h-full rounded-lg border border-neutral-100 hover:cursor-pointer hover:border-[#218cac] transition-colors">
-                  <span className="text-xl font-medium">Wt</span>
-                  <span className="text-xl font-medium">22</span>
-                </div>
-              </li>
-              <li className="inline-block w-28 h-full flex-shrink-0">
-                <div className="flex flex-col items-center justify-center w-full h-full rounded-lg border border-neutral-100 hover:cursor-pointer hover:border-[#218cac] transition-colors">
-                  <span className="text-xl font-medium">Śr</span>
-                  <span className="text-xl font-medium">23</span>
-                </div>
-              </li>
-              <li className="inline-block w-28 h-full flex-shrink-0">
-                <div className="flex flex-col items-center justify-center w-full h-full rounded-lg border border-neutral-100 hover:cursor-pointer hover:border-[#218cac] transition-colors">
-                  <span className="text-xl font-medium">Czw</span>
-                  <span className="text-xl font-medium">24</span>
-                </div>
-              </li>
-              <li className="inline-block w-28 h-full flex-shrink-0">
-                <div className="flex flex-col items-center justify-center w-full h-full rounded-lg border border-neutral-100 hover:cursor-pointer hover:border-[#218cac] transition-colors">
-                  <span className="text-xl font-medium">Pt</span>
-                  <span className="text-xl font-medium">25</span>
-                </div>
-              </li>
-              <li className="inline-block w-28 h-full flex-shrink-0">
-                <div className="flex flex-col items-center justify-center w-full h-full rounded-lg border border-neutral-100 hover:cursor-pointer hover:border-[#218cac] transition-colors">
-                  <span className="text-xl font-medium">Sob</span>
-                  <span className="text-xl font-medium">26</span>
-                </div>
-              </li>
-              <li className="inline-block w-28 h-full flex-shrink-0">
-                <div className="flex flex-col items-center justify-center w-full h-full rounded-lg border border-neutral-100 hover:cursor-pointer hover:border-[#218cac] transition-colors">
-                  <span className="text-xl font-medium">Ndz</span>
-                  <span className="text-xl font-medium">27</span>
-                </div>
-              </li>
-            </ul>
+            <Carousel />
           </div>
           {/* Carousel with days of month  */}
         </div>

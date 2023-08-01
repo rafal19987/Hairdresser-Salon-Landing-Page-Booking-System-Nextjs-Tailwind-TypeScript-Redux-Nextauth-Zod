@@ -49,3 +49,11 @@
   --primary-text-color: #fff;
   --header-height: 90px;
 }
+
+.selected {
+  background-color: #218cac;
+  color: white;
+}
+.selected:hover {
+  cursor: default;
+}
