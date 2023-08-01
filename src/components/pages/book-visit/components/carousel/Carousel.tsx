@@ -1,7 +1,14 @@
 import CarouselItem from './CarouselItem';
 
+type TDateTimeFormatOptions = {
+  weekday: 'short' | 'long' | 'narrow' | undefined;
+  day: 'numeric' | '2-digit' | undefined;
+  month: 'long' | 'numeric' | '2-digit' | undefined;
+  year: 'numeric' | '2-digit' | undefined;
+};
+
 const Carousel = () => {
-  const options = {
+  const options: TDateTimeFormatOptions = {
     weekday: 'short',
     day: 'numeric',
     month: 'long',
