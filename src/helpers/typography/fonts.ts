@@ -8,7 +8,7 @@ export const permanentMarker = Permanent_Marker({
 
 export const montserrat = Montserrat({
   subsets: ['latin'],
-  weight: ['400', '700'],
+  weight: ['400', '500', '600', '700', '800'],
   style: ['italic', 'normal'],
   variable: '--font-montserrat',
 });
