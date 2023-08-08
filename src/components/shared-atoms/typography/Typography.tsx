@@ -1,40 +1,62 @@
 export type TTypographyProps = {
   text: string;
-  mt?: number;
+  align?: 'left' | 'center' | 'right';
 };
 
-export const H1 = ({ text }: TTypographyProps) => {
+export const H1 = ({ text, align = 'center' }: TTypographyProps) => {
   return (
-    <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl">
+    <h1
+      className={`w-full text-4xl font-montserrat font-bold tracking-tighter leading-normal text-${align} lg:text-5xl`}
+    >
       {text}
     </h1>
   );
 };
 
-export const H2 = ({ text }: TTypographyProps) => {
+export const H2 = ({ text, align = 'left' }: TTypographyProps) => {
   return (
-    <h2 className="w-full text-3xl font-semibold tracking-tight md:text-4xl md:text-center">
+    <h2
+      className={`w-full text-${align} text-3xl font-semibold tracking-tight text-slate-200 md:text-4xl md:text-center`}
+    >
       {text}
     </h2>
   );
 };
 
-export const H3 = ({ text }: TTypographyProps) => {
-  return <h3 className="text-2xl font-semibold tracking-tight">{text}</h3>;
+export const H3 = ({ text, align = 'center' }: TTypographyProps) => {
+  return (
+    <h3
+      className={`w-full  text-${align} text-2xl font-semibold tracking-tight`}
+    >
+      {text}
+    </h3>
+  );
 };
 
-export const H4 = ({ text }: TTypographyProps) => {
-  return <h4 className="text-xl font-semibold  tracking-tight">{text}</h4>;
+export const H4 = ({ text, align = 'center' }: TTypographyProps) => {
+  return (
+    <h4
+      className={`w-full  text-${align} text-xl font-semibold tracking-tight`}
+    >
+      {text}
+    </h4>
+  );
 };
 
-export const P = ({ text }: TTypographyProps) => {
-  return <p className="leading-7 [&:not(:first-child)]:mt-4">{text}</p>;
+export const P = ({ text, align = 'right' }: TTypographyProps) => {
+  return (
+    <p
+      className={`w-full  text-${align} leading-normal text-base font-lato text-slate-200 [&:not(:first-child)]:mt-4`}
+    >
+      {text}
+    </p>
+  );
 };
 
-export const Blockquote = ({ text, mt = 2 }: TTypographyProps) => {
+export const Blockquote = ({ text, align = 'right' }: TTypographyProps) => {
   return (
     <blockquote
-      className={`mt-${mt} pl-6 text-base md:text-xl  border-l border-l-[var(--gold)] italic font-thin before:content-['"'] after:content-['"']`}
+      className={`w-full pl-6 md:text-xl text-${align} border-l border-l-[var(--gold)] text-stone-300 text-md font-lato tracking-wide italic before:content-['"'] after:content-['"']`}
     >
       {text}
     </blockquote>
