@@ -65,10 +65,10 @@ export const Blockquote = ({ text, align = 'left' }: TTypographyProps) => {
 
 export const ImageCaption = ({ text }: TTypographyProps) => {
   return (
-    <span className="self-start  text-xl font-medium  md:text-3xl">{text}</span>
+    <span className="self-start text-xl font-medium  md:text-3xl">{text}</span>
   );
 };
 
 export const Cite = ({ text }: TTypographyProps) => {
-  return <cite className=" text-lg  font-bold">{text}</cite>;
+  return <cite className=" text-lg font-bold">{text}</cite>;
 };
