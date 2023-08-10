@@ -1,4 +1,4 @@
-const ReviewItemSkeleton = () => {
+const ReviewSkeleton = () => {
   return (
     <div className="relative flex flex-col h-48  my-14 py-4 gap-4 bg-[#424242] rounded-[20px] animate-pulse">
       <div className="absolute -top-8 text-xl opacity-0" aria-busy>
@@ -9,4 +9,4 @@ const ReviewItemSkeleton = () => {
   );
 };
 
-export default ReviewItemSkeleton;
+export default ReviewSkeleton;

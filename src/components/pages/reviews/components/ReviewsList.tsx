@@ -3,8 +3,8 @@
 import { useState, useEffect } from 'react';
 import { TReviewsProps } from '@/types/apiResponseTypes';
 import { getReviewsFromApi } from '@/actions/getReviewsFromApi';
-import ReviewItem from './ReviewItem';
-import ReviewItemSkeleton from './ReviewItemSkeleton';
+import Review from './Review';
+import ReviewSkeleton from './ReviewSkeleton';
 
 const ReviewsList = () => {
   const [reviews, setReviews] = useState<TReviewsProps[] | []>([]);
@@ -31,15 +31,15 @@ const ReviewsList = () => {
   if (isLoading)
     return (
       <div>
-        <ReviewItemSkeleton />
-        <ReviewItemSkeleton />
+        <ReviewSkeleton />
+        <ReviewSkeleton />
       </div>
     );
 
   return (
     <ul className="w-full">
       {reviews?.map((review) => (
-        <ReviewItem key={review.author_name} review={review} />
+        <Review key={review.author_name} review={review} />
       ))}
     </ul>
   );
