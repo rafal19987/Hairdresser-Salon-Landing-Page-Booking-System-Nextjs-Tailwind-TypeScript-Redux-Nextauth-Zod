@@ -7,17 +7,17 @@ type TImageContainerProps = {
   className?: string;
 };
 
-const ImageContainer: React.FC<TImageContainerProps> = ({
+const ImageContainer = ({
   children,
   height = 273,
   width = 'full',
   rounded = '3xl',
   mt = 8,
   className,
-}) => {
+}: TImageContainerProps) => {
   return (
     <div
-      className={`relative w-full h-[${height}px] mt-${mt} rounded-${rounded} overflow-hidden ${className}`}
+      className={`relative w-full h-[503px] mt-${mt} rounded-${rounded}  overflow-hidden ${className}`}
     >
       {children}
     </div>

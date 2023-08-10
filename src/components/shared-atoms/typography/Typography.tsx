@@ -46,7 +46,7 @@ export const H4 = ({ text, align = 'center' }: TTypographyProps) => {
 export const P = ({ text, align = 'left' }: TTypographyProps) => {
   return (
     <p
-      className={`w-full  text-${align} leading-normal text-base font-lato text-slate-200 [&:not(:first-child)]:mt-4`}
+      className={`w-full  text-${align} leading-normal text-base font-lato text-slate-200 md:text-2xl [&:not(:first-child)]:mt-4`}
     >
       {text}
     </p>
