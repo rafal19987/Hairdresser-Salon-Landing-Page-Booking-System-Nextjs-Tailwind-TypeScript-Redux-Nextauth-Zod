@@ -3,34 +3,43 @@
 import { useState, useEffect } from 'react';
 import { TReviewsProps } from '@/types/apiResponseTypes';
 import { getReviewsFromApi } from '@/actions/getReviewsFromApi';
-import ReviewItem from './ReviewItem';
+import Review from './Review';
+import ReviewSkeleton from './ReviewSkeleton';
 
 const ReviewsList = () => {
   const [reviews, setReviews] = useState<TReviewsProps[] | []>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const fetchReviews = async () => {
+    const cachedReviews = localStorage.getItem('cachedReviews');
+
+    if (cachedReviews) {
+      setReviews(JSON.parse(cachedReviews));
+      setIsLoading(false);
+    }
+
+    const reviews = await getReviewsFromApi();
+    setReviews(reviews);
+    localStorage.setItem('cachedReviews', JSON.stringify(reviews));
+    setIsLoading(false);
+  };
 
   useEffect(() => {
-    (async () => {
-      const reviews: TReviewsProps[] = await getReviewsFromApi();
-      setReviews(reviews);
-      setIsLoading(false);
-    })();
+    fetchReviews();
   }, []);
 
+  if (isLoading)
+    return (
+      <div>
+        <ReviewSkeleton />
+        <ReviewSkeleton />
+      </div>
+    );
+
   return (
-    <ul>
-      {isLoading && (
-        <>
-          <li>
-            <div className="relative flex flex-col h-48 mx-8 my-14 py-4 gap-4 bg-[#424242] rounded-[20px] animate-pulse">
-              <div className="absolute -top-8 text-xl">Wczytywanie...</div>
-              <div className="absolute -right-4 -top-8 max-[295px]:hidden w-16 h-16 rounded-full bg-slate-400"></div>
-            </div>
-          </li>
-        </>
-      )}
+    <ul className="w-full">
       {reviews?.map((review) => (
-        <ReviewItem key={review.author_name} review={review} />
+        <Review key={review.author_name} review={review} />
       ))}
     </ul>
   );

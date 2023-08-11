@@ -6,6 +6,7 @@ import logoIcon from '@/assets/logo.svg';
 import manWithGlassesImg from '@/assets/man-with-glasses.png';
 import mainWithGlassesImgDesktop from '@/assets/man-with-glasses-big.png';
 import homeContent from '@/helpers/content/pages/home/homeContent';
+import SalonAddress from '../../contact/componenets/SalonAddress';
 
 const Card = () => {
   const { primaryAddress, secondaryAddress, phoneNumber } = homeContent;

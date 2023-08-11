@@ -20,6 +20,7 @@ module.exports = {
     fontFamily: {
       permanentMarker: ['var(--font-permanent-marker)'],
       montserrat: ['var(--font-montserrat)'],
+      lato: ['var(--font-lato)'],
     },
   },
   plugins: [],
