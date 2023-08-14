@@ -7,27 +7,23 @@ import manWithGlassesImg from '@/assets/man-with-glasses.png';
 import mainWithGlassesImgDesktop from '@/assets/man-with-glasses-big.png';
 import homeContent from '@/helpers/content/pages/home/homeContent';
 import SalonAddress from '../../contact/componenets/SalonAddress';
+import ImageContainer from '@/components/shared-atoms/ImageContainer';
+import ImageItem from '@/components/shared-atoms/ImageItem';
 
 const Card = () => {
   const { primaryAddress, secondaryAddress, phoneNumber } = homeContent;
 
   return (
-    <section className="relative flex flex-col gap-6 items-center h-full w-full max-w-[500px] bg-black rounded-[30px] shadow-xl shadow-[var(--gray)] dark:shadow-[var(--gold)] lg:flex-row lg:w-[915px] lg:max-w-full lg:h-[494px] overflow-hidden">
-      <div className="hidden lg:flex absolute top-8 right-8 items-center justify-end gap-6 w-2/4 z-10">
-        <div className="flex flex-col font-permanentMarker">
-          <h2 className="text-4xl text-[var(--gold)]">Męska strefa</h2>
-          <h3 className="text-xl text-[var(--gold)]">Poczuj się jak król</h3>
-        </div>
-        <Image src={logoIcon} alt="logo icon on card" />
-      </div>
-      <picture className="relative w-4/5 h-3/5 lg:w-[414px] lg:h-full">
+    <section className="relative flex flex-col gap-6 items-center h-full w-full max-w-[500px]  lg:flex-row lg:w-[915px] lg:max-w-full lg:h-[494px] overflow-hidden">
+      <ImageContainer>
         <Image
           className="object-contain"
           src={mainWithGlassesImgDesktop}
           alt="man with glasses"
           fill
         />
-      </picture>
+      </ImageContainer>
+
       <ul
         className="flex flex-col gap-6 items-center justify-center w-full py-4 px-6 text-xl
       lg:items-end lg:justify-between lg:grow lg:w-2/5 lg:mr-8"

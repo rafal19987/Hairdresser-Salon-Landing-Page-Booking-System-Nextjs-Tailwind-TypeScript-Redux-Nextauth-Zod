@@ -15,7 +15,7 @@ const ImageItem = ({ imageSrc, imageAlt }: TImageItemProps) => {
 
   useEffect(() => {
     startLoading();
-  }, []);
+  }, [startLoading]);
 
   return (
     <Image
