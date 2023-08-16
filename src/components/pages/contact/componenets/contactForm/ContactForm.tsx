@@ -51,18 +51,20 @@ const ContactForm = () => {
   const onSubmit: SubmitHandler<TFormSchema> = async (data) => {
     const { name, phoneNumber, message } = data;
     try {
-      const res = await fetch('http://localhost:3000/api/sendMessage', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ name, phoneNumber, message }),
-      });
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_FETCH_API_URL}/sendMessage'`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ name, phoneNumber, message }),
+        }
+      );
       return await res.json();
     } catch (error) {
       console.error('Wystąpił błąd podczas wysyłania wiadomości:', error);
     }
-
     reset();
   };
 

@@ -7,19 +7,18 @@ export async function POST(request: NextRequest) {
 
   try {
     const { name, phoneNumber, message } = await request.json();
-    console.log(name, phoneNumber, message);
-    await supabaseClient.from('hairdresser').insert({
-      name: 'Maciej',
-      phoneNumber: '500500500',
-      message: 'Siema Eniu jak się masz',
-    });
-    return NextResponse.json({
+    await supabaseClient.from('hairdresser-messages').insert({
       name,
       phoneNumber,
       message,
     });
+    return NextResponse.json({
+      message: 'Wiadomość została wysłana?',
+    });
   } catch (error) {
-    console.log(error);
-    return NextResponse.json({ message: 'Wiadomość nie została wysłana' });
+    return NextResponse.json({
+      message: 'Wiadomość nie została wysłana',
+      error,
+    });
   }
 }
