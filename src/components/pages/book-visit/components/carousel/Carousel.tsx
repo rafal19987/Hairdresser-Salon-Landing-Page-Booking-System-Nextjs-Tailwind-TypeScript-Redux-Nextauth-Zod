@@ -27,7 +27,7 @@ const Carousel = () => {
   }
 
   return (
-    <ul className="flex whitespace-nowrap items-center gap-4 w-full h-full overflow-x-auto  flex-shrink-0 no-scrollbar">
+    <ul className="flex whitespace-nowrap items-center gap-4 w-full h-full overflow-x-auto  flex-shrink-0 no-scrollbar border-x-2 border-gray-600/10">
       {datesArray.map((day: string) => {
         const splitDate = day.split(' ');
         const dayInWords = splitDate[0].slice(0, -1);

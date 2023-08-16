@@ -53,6 +53,7 @@
 .selected {
   background-color: #218cac;
   color: white;
+  border-color: #2ca2c7;
 }
 .selected:hover {
   cursor: default;

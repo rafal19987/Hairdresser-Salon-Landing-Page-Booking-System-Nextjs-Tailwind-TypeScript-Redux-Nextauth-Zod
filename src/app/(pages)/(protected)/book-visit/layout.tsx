@@ -31,7 +31,7 @@ export default function ProtectedRoutesLayout({
 
   return (
     <main className="flex h-screen bg-white overflow-hidden">
-      <section className="relative w-full py-10 px-0 lg:p-14">
+      <section className="relative w-full">
         {children}
         <div className="border border-[#B7B7B7] h-full overflow-hidden">
           <div className="w-full h-full p-4 overflow-y-scroll">

@@ -13,15 +13,9 @@ const BookSpecificServiePage = ({ params }: { params: { slug: number } }) => {
   const services: TServiceProps[] = SERVICES;
   const today = getTodayDate();
 
-  /* 
-  console.log('Number of days in this month', daysOfMonth);
-  console.log('This is month number', month);
-  console.log('Year', year);
-  console.log('days in month', daysInMonth(year, month)); */
-
   return (
-    <div className="absolute flex items-center justify-center w-screen h-5/6 mt-10 p-20 bg-gray-500 bg-opacity-80 z-10">
-      <div className="relative flex flex-col items-center w-[900px] h-[700px] rounded-3xl bg-white bg-opacity-100">
+    <div className="absolute flex items-center justify-center w-screen h-screen p-20 bg-black/40 backdrop-blur-sm z-10">
+      <div className="relative flex flex-col items-center w-screen h-screen bg-white bg-opacity-100 lg:w-[900px] lg:h-[700px] ">
         {/* Close window and back to prev route button  */}
         <div
           tabIndex={1}
@@ -33,7 +27,7 @@ const BookSpecificServiePage = ({ params }: { params: { slug: number } }) => {
         </div>
         <p className="mt-8 text-xl text-black font-bold">{today}</p>
         {/* Section with selecting visit day  */}
-        <div className="relative flex  items-center justify-center w-[740px] h-[120px] mt-8">
+        <div className="relative flex  items-center justify-center w-full h-[250px] mt-8 lg:w-[740px] lg:h-[120px]">
           {/* Button for navigation to left */}
           <div className="absolute left-0 w-10 h-10 rounded-full overflow-hidden shadow-md">
             <button
@@ -68,7 +62,7 @@ const BookSpecificServiePage = ({ params }: { params: { slug: number } }) => {
           {/* Carousel with days of month  */}
         </div>
 
-        <div className="relative flex  items-center justify-center w-[740px] h-[60px] mt-8">
+        <div className="relative flex  items-center justify-center w-full h-[70px] mt-8 lg:w-[740px]">
           {/* Button for navigation to left */}
           <div className="absolute left-0 w-10 h-10 rounded-full overflow-hidden shadow-md">
             <button
@@ -98,7 +92,7 @@ const BookSpecificServiePage = ({ params }: { params: { slug: number } }) => {
           </div>
           {/* Carousel with days of month  */}
           <div className="w-4/5 h-full">
-            <ul className="flex whitespace-nowrap items-center gap-4 w-full h-full overflow-x-auto  flex-shrink-0 no-scrollbar">
+            <ul className="flex whitespace-nowrap items-center gap-4 w-full h-full border-x-2 border-gray-600/10 overflow-x-auto  flex-shrink-0 no-scrollbar">
               <li className="inline-block w-28 h-full flex-shrink-0">
                 <div
                   tabIndex={6}
@@ -130,20 +124,84 @@ const BookSpecificServiePage = ({ params }: { params: { slug: number } }) => {
                   <span className="text-base font-medium">14:00</span>
                 </div>
               </li>
+              <li className="inline-block w-28 h-full flex-shrink-0">
+                <div
+                  tabIndex={6}
+                  className="flex flex-col items-center justify-center w-full h-full rounded-lg border border-neutral-100 hover:cursor-pointer hover:border-[#218cac] transition-colors"
+                >
+                  <span className="text-base font-medium">14:30</span>
+                </div>
+              </li>
+              <li className="inline-block w-28 h-full flex-shrink-0">
+                <div
+                  tabIndex={6}
+                  className="flex flex-col items-center justify-center w-full h-full rounded-lg border border-neutral-100 hover:cursor-pointer hover:border-[#218cac] transition-colors"
+                >
+                  <span className="text-base font-medium">15:00</span>
+                </div>
+              </li>
+              <li className="inline-block w-28 h-full flex-shrink-0">
+                <div
+                  tabIndex={6}
+                  className="flex flex-col items-center justify-center w-full h-full rounded-lg border border-neutral-100 hover:cursor-pointer hover:border-[#218cac] transition-colors"
+                >
+                  <span className="text-base font-medium">15:30</span>
+                </div>
+              </li>
+              <li className="inline-block w-28 h-full flex-shrink-0">
+                <div
+                  tabIndex={6}
+                  className="flex flex-col items-center justify-center w-full h-full rounded-lg border border-neutral-100 hover:cursor-pointer hover:border-[#218cac] transition-colors"
+                >
+                  <span className="text-base font-medium">16:00</span>
+                </div>
+              </li>
+              <li className="inline-block w-28 h-full flex-shrink-0">
+                <div
+                  tabIndex={6}
+                  className="flex flex-col items-center justify-center w-full h-full rounded-lg border border-neutral-100 hover:cursor-pointer hover:border-[#218cac] transition-colors"
+                >
+                  <span className="text-base font-medium">16:30</span>
+                </div>
+              </li>
+              <li className="inline-block w-28 h-full flex-shrink-0">
+                <div
+                  tabIndex={6}
+                  className="flex flex-col items-center justify-center w-full h-full rounded-lg border border-neutral-100 hover:cursor-pointer hover:border-[#218cac] transition-colors"
+                >
+                  <span className="text-base font-medium">17:00</span>
+                </div>
+              </li>
+              <li className="inline-block w-28 h-full flex-shrink-0">
+                <div
+                  tabIndex={6}
+                  className="flex flex-col items-center justify-center w-full h-full rounded-lg border border-neutral-100 hover:cursor-pointer hover:border-[#218cac] transition-colors"
+                >
+                  <span className="text-base font-medium">17:30</span>
+                </div>
+              </li>
+              <li className="inline-block w-28 h-full flex-shrink-0">
+                <div
+                  tabIndex={6}
+                  className="flex flex-col items-center justify-center w-full h-full rounded-lg border border-neutral-100 hover:cursor-pointer hover:border-[#218cac] transition-colors"
+                >
+                  <span className="text-base font-medium">18:00</span>
+                </div>
+              </li>
             </ul>
           </div>
           {/* Carousel with days of month  */}
         </div>
 
         <hr className="w-full my-4 bg-[#b7b7b7]" />
-        <div></div>
+
         {/* Service Card with name service, price, time, performer and button for change performer */}
-        <div className="flex flex-col w-[740px] h-[170px] pt-10 px-8 pb-5 bg-[#E2E2E2] rounded-2xl">
-          <div className="flex items-center justify-between">
-            <h2 className="w-[440px] h-full text-xl font-bold">
+        <div className="flex flex-col w-full h-[250px] pt-10 px-8 pb-5 bg-[#E2E2E2] lg:w-[740px] lg:h-[170px] md:rounded-2xl">
+          <div className="flex flex-col items-center justify-between md:flex-row">
+            <h2 className="w-full h-full text-xl font-bold lg:w-[440px]">
               {services[params.slug - 1].service}
             </h2>
-            <div className="flex flex-col items-end gap-2">
+            <div className="flex flex-col items-end gap-2 w-full ">
               <span className="text-xl text-black font-bold">
                 {services[params.slug - 1].price}
               </span>
