@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
       message,
     });
     return NextResponse.json({
-      message: 'Wiadomość została wysłana?',
+      message: 'Wiadomość została wysłana',
     });
   } catch (error) {
     return NextResponse.json({
