@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { TReviewsProps } from '@/types/apiResponseTypes';
-import { getReviewsFromApi } from '@/actions/getReviewsFromApi';
 import Review from './Review';
 import ReviewSkeleton from './ReviewSkeleton';
 
@@ -10,21 +9,20 @@ const ReviewsList = () => {
   const [reviews, setReviews] = useState<TReviewsProps[] | []>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const fetchReviews = async () => {
-    const cachedReviews = localStorage.getItem('cachedReviews');
-
-    if (cachedReviews) {
-      setReviews(JSON.parse(cachedReviews));
-      setIsLoading(false);
-    }
-
-    const reviews = await getReviewsFromApi();
-    setReviews(reviews);
-    localStorage.setItem('cachedReviews', JSON.stringify(reviews));
-    setIsLoading(false);
-  };
-
   useEffect(() => {
+    const fetchReviews = async () => {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_FETCH_API_URL}/reviews`,
+        {
+          next: { revalidate: 3600 },
+          cache: 'force-cache',
+        }
+      );
+      const data = await res.json();
+      console.log(data);
+      setReviews(data);
+      setIsLoading(false);
+    };
     fetchReviews();
   }, []);
 

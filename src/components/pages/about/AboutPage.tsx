@@ -1,3 +1,6 @@
+'use client';
+
+import { useEffect, useState } from 'react';
 import SectionWrapper from '@/components/shared-atoms/SectionWrapper';
 import ArticleWrapper from '@/components/shared-atoms/ArticleWrapper';
 import ImageContainer from '@/components/shared-atoms/ImageContainer';
@@ -7,12 +10,29 @@ import FlexContainer from '@/components/shared-atoms/FlexContainer';
 import EmployeeContainer from '@/components/shared-atoms/EmployeeContainer';
 import * as Typography from '@/components/shared-atoms/typography/Typography';
 import firstImage from '@/assets/about-page-first-image.jpg';
-import agnieszkaImage from '@/assets/employee-2-face-image-big.png';
-import wiktoriaImage from '@/assets/employee-1-face-image-big.png';
 import salonImage from '@/assets/salon-image.jpg';
 import combIcon from '@/assets/comb-icon.svg';
+import { TEmployeeProps } from '@/types/employeeTypes';
 
 const AboutPage = () => {
+  const [employees, setEmployees] = useState<TEmployeeProps[] | null>(null);
+
+  useEffect(() => {
+    const fetchEmployees = async () => {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_FETCH_API_URL}/employees`,
+        {
+          next: {
+            revalidate: 20,
+          },
+        }
+      );
+      const data = await res.json();
+      setEmployees(data);
+    };
+    fetchEmployees();
+  }, []);
+
   return (
     <SectionWrapper>
       <ArticleWrapper>
@@ -24,7 +44,7 @@ const AboutPage = () => {
         />
         <Typography.P
           text="Nasz salon jest prowadzony przez dwie utalentowane fryzjerki -
-         Agnieszkę i Wiktorię, które
+          Agnieszkę i Wiktorię, które
         posiadają wieloletnie doświadczenie w świecie mody i stylizacji
         męskich włosów."
         />
@@ -42,19 +62,16 @@ const AboutPage = () => {
       <ArticleWrapper>
         <Typography.H2 text="Nasze specjalistki" />
         <EmployeeContainer>
-          <EmployeeCard
-            imageAlt="Wiktoria image"
-            imageSrc={wiktoriaImage}
-            imageCaption="Wiktoria"
-            blockqoute="W Męskiej Strefie stawiamy na indywidualizm i precyzję, dbając o każdy detal, by Twoja fryzura była wyjątkowa i dopasowana do Twoje stylu."
-          />
-          <EmployeeCard
-            imageAlt="Agnieszka image"
-            imageSrc={agnieszkaImage}
-            imageCaption="Agnieszka"
-            blockqoute="Nieustannie podążamy za najnowszymi trendami i technikami
-            fryzjerskimi, aby zapewnić Ci najwyższy poziom obsługi"
-          />
+          {employees?.map((employee) => (
+            <div key={employee.id}>
+              <EmployeeCard
+                imageAlt=""
+                imageSrc={employee.photo}
+                imageCaption={employee.name}
+                blockqoute={employee.quote}
+              />
+            </div>
+          ))}
         </EmployeeContainer>
       </ArticleWrapper>
 

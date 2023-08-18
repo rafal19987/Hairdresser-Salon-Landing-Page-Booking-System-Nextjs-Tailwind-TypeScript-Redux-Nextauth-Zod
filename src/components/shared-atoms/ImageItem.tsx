@@ -1,9 +1,7 @@
 'use client';
 
-import useImageLoader from '@/hooks/useImageLoader';
-
 import Image, { StaticImageData } from 'next/image';
-import { useEffect } from 'react';
+import { useState } from 'react';
 
 export type TImageItemProps = {
   imageSrc: StaticImageData;
@@ -11,11 +9,7 @@ export type TImageItemProps = {
 };
 
 const ImageItem = ({ imageSrc, imageAlt }: TImageItemProps) => {
-  const { isLoading, startLoading, stopLoading } = useImageLoader();
-
-  useEffect(() => {
-    startLoading();
-  }, [startLoading]);
+  const [isLoading, setIsLoading] = useState(true);
 
   return (
     <Image
@@ -23,13 +17,13 @@ const ImageItem = ({ imageSrc, imageAlt }: TImageItemProps) => {
       src={imageSrc}
       fill
       className={`object-cover transition-all duration-500
-    ${
-      isLoading
-        ? 'scale-105 blur-md grayscale animate-pulse'
-        : 'scale-100 blud-0 grayscale-0 '
-    }
+      ${
+        isLoading
+          ? 'scale-105 blur-lg grayscale animate-pulse'
+          : 'scale-100 blud-0 grayscale-0'
+      }
   `}
-      onLoadingComplete={() => stopLoading()}
+      onLoadingComplete={() => setIsLoading(false)}
     />
   );
 };
