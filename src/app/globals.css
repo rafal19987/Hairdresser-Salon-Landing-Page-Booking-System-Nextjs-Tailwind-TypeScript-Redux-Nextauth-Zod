@@ -39,7 +39,7 @@
 :root {
   --primary: rgba(0, 0, 0, 0.1);
   --secondary: cornflowerblue;
-  --body-bg-dark: #0f1011;
+  --body-bg-dark: #000000;
   --body-bg-light: #fff;
   --header-bg-dark: #0f1011;
   --header-bg-light: #000000;
@@ -53,6 +53,7 @@
 .selected {
   background-color: #218cac;
   color: white;
+  border-color: #2ca2c7;
 }
 .selected:hover {
   cursor: default;

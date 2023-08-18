@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer
       className="
-    flex items-center justify-center w-full  dark:border-t dark:border-[var(--gold)] bg-[var(--header-bg-light)] dark:bg-[var(--header-bg-dark)]"
+    flex items-center justify-center w-full bg-[var(--header-bg-light)] dark:bg-[var(--header-bg-dark)]"
     >
       <div className="flex items-center justify-between w-full p-4  lg:max-w-[1600px]">
         <ul className="flex flex-col items-end gap-5 w-full h-full text-white">
