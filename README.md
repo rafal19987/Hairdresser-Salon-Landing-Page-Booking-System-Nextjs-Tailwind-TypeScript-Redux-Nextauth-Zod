@@ -6,7 +6,7 @@ As of now, the project is in its development phase, and I am actively using Git 
 
 I'm excited to announce that soon, the project will reach version 1.0.0, and it will be made available to the public. Stay tuned for updates on its release!
 
-To check out the current Live version 0.1.0, you can visit: https://hairdresser-page.vercel.app/
+To check out the current Live version 0.1.0, you can visit: [https://hairdresser-page.vercel.app/](https://hairderesser-page.vercel.app/)
 
 (Note: The given link is for version 0.1.0 of the project. Please look forward to the upcoming version 1.0.0, which will bring more features and improvements.)
 
