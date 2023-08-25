@@ -1,4 +1,5 @@
 import { ThemeContextProvider } from '@/context/ThemeContext';
+import { ReduxProvider } from '@/redux/provider';
 import './globals.css';
 
 export const metadata = {
@@ -14,7 +15,9 @@ export default function RootLayout({
   return (
     <html lang="pl">
       <body>
-        <ThemeContextProvider>{children}</ThemeContextProvider>
+        <ThemeContextProvider>
+          <ReduxProvider>{children}</ReduxProvider>
+        </ThemeContextProvider>
       </body>
     </html>
   );
