@@ -1,4 +1,5 @@
 import { ThemeContextProvider } from '@/context/ThemeContext';
+import { ReduxProvider } from '@/store/provider';
 import './globals.css';
 
 export const metadata = {
@@ -12,9 +13,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pl">
+    <html lang='pl'>
       <body>
-        <ThemeContextProvider>{children}</ThemeContextProvider>
+        <ThemeContextProvider>
+          <ReduxProvider>{children}</ReduxProvider>
+        </ThemeContextProvider>
       </body>
     </html>
   );
