@@ -4,35 +4,23 @@ import { type TEmployeesStore } from '../employees/employeesSlice';
 import { type TServicesStore } from '../services/servicesSlice';
 
 export type TReservationsStore = {
-  id: number;
-  createdAt: string;
+  id: number | string;
+  createdAt: string | Date;
   executorId: TEmployeesStore['id'];
   serviceId: TServicesStore['id'];
-  day: string;
-  hour: string;
+  day?: string | number;
+  hour?: string | number;
   isConfirmed: boolean;
+  reservationDate?: {
+    hour: string;
+    date?: string;
+    day: string;
+    month?: number;
+    year?: number;
+  };
 };
 
-const initialState: TReservationsStore[] = [
-  {
-    id: 1,
-    createdAt: 'new Date()',
-    executorId: 2,
-    serviceId: 2,
-    day: '12',
-    hour: '8:30',
-    isConfirmed: true,
-  },
-  {
-    id: 2,
-    createdAt: 'new Date()',
-    executorId: 1,
-    serviceId: 2,
-    day: '12',
-    hour: '9:00',
-    isConfirmed: false,
-  },
-];
+const initialState: TReservationsStore[] = [];
 
 export const reservationsSlice = createSlice({
   name: 'reservations',
@@ -42,10 +30,15 @@ export const reservationsSlice = createSlice({
       state = [action.payload, ...state];
       return state;
     },
+    deleteAllReserations: (state) => {
+      state = [];
+      return state;
+    },
   },
 });
 
-export const { addReservation } = reservationsSlice.actions;
+export const { addReservation, deleteAllReserations } =
+  reservationsSlice.actions;
 
 export const selectEmployees = (state: RootState) => state.reservations;
 
