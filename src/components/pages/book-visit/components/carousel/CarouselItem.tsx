@@ -17,7 +17,7 @@ const CarouselItem = ({
   isPast?: boolean;
   setSelectedDay?: Dispatch<SetStateAction<string>>;
   day?: string;
-  selectedDay: string;
+  selectedDay?: string;
 }) => {
   const [isSelected, setIsSelected] = useState(false);
 
