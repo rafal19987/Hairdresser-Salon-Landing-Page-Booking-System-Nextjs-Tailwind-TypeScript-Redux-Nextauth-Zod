@@ -5,6 +5,7 @@ import thunk from 'redux-thunk';
 import employeesReducer from './features/employees/employeesSlice';
 import servicesReducer from './features/services/servicesSlice';
 import reservationsReducer from './features/reservations/reservationsSlice';
+import selectedServiceIdReducer from './features/selectedServiceId/selectedServiceIdSlice';
 
 const persistConfig = {
   key: 'root',
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   employees: employeesReducer,
   services: servicesReducer,
   reservations: reservationsReducer,
+  selectedServiceId: selectedServiceIdReducer,
 });
 
 const persistedReducers = persistReducer(persistConfig, rootReducer);
