@@ -16,12 +16,12 @@ export const useSortData = <T extends { price: string }>(
   const sortData = (): void => {
     if (sortedBy.sortedBy === 'idle' || sortedBy.sortedBy === 'ascending') {
       setSortedData(
-        data.toSorted((a, b) => parseFloat(a.price) - parseFloat(b.price))
+        [...data].sort((a, b) => parseFloat(a.price) - parseFloat(b.price))
       );
       setSortedBy({ sortedBy: 'descending' });
     } else {
       setSortedData(
-        data.toSorted((a, b) => parseFloat(b.price) - parseFloat(a.price))
+        [...data].sort((a, b) => parseFloat(b.price) - parseFloat(a.price))
       );
       setSortedBy({ sortedBy: 'ascending' });
     }
