@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { TReviewsProps } from '@/types/apiResponseTypes';
 import Review from './Review';
 import ReviewSkeleton from './ReviewSkeleton';
+import { fakeReviews } from '@/helpers/constants/fakeReviews';
 
 const ReviewsList = () => {
   const [reviews, setReviews] = useState<TReviewsProps[] | []>([]);
@@ -11,17 +12,26 @@ const ReviewsList = () => {
 
   useEffect(() => {
     const fetchReviews = async () => {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_FETCH_API_URL}/reviews`,
-        {
-          next: { revalidate: 3600 },
-          cache: 'force-cache',
-        }
-      );
-      const data = await res.json();
-      console.log(data);
-      setReviews(data);
-      setIsLoading(false);
+      try {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_FETCH_API_URL}/reviews`,
+          {
+            next: { revalidate: 3600 },
+            cache: 'force-cache',
+          }
+        );
+        const data = await res.json();
+
+        if (Object.keys(data).length < 1) throw 'Ups, something went wrong.';
+
+        setReviews(data);
+      } catch (error) {
+        console.log(error);
+        console.log('Now we will return fakeRevies data');
+        setReviews(fakeReviews);
+      } finally {
+        setIsLoading(false);
+      }
     };
     fetchReviews();
   }, []);
@@ -35,7 +45,7 @@ const ReviewsList = () => {
     );
 
   return (
-    <ul className="w-full">
+    <ul className='w-full'>
       {reviews?.map((review) => (
         <Review key={review.author_name} review={review} />
       ))}
