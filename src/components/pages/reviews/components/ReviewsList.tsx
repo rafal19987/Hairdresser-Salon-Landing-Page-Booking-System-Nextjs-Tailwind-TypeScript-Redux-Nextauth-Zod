@@ -18,7 +18,7 @@ const ReviewsList = () => {
           {
             next: { revalidate: 3600 },
             cache: 'force-cache',
-          }
+          },
         );
         const data = await res.json();
 

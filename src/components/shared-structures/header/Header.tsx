@@ -8,14 +8,14 @@ import logo from '@/assets/logo.svg';
 
 const Header = () => {
   return (
-    <header className="fixed top-0 flex items-center justify-center w-full bg-[var(--header-bg-light)] dark:bg-[var(--header-bg-dark)] z-20">
-      <div className="relative flex items-center justify-between w-full h-[var(--header-height)] px-4 lg:max-w-[1600px]">
+    <header className='fixed top-0 flex items-center justify-center w-full bg-[var(--header-bg-light)] dark:bg-[var(--header-bg-dark)] z-20'>
+      <div className='relative flex items-center justify-between w-full h-[var(--header-height)] px-4 lg:max-w-[1600px]'>
         <Link href={navigationRoutes[0].route}>
-          <div className="flex items-center gap-4">
-            <div className="relative w-[50px] h-[60px]">
-              <Logo src={logo} alt="Logo image" />
+          <div className='flex items-center gap-4'>
+            <div className='relative w-[50px] h-[60px]'>
+              <Logo src={logo} alt='Logo image' />
             </div>
-            <h1 className="font-permanentMarker text-[var(--gold)] text-lg">
+            <h1 className='font-permanentMarker text-[var(--gold)] text-lg'>
               Męska strefa
             </h1>
           </div>
@@ -23,10 +23,10 @@ const Header = () => {
         <div>
           <ChangeThemeBtn />
         </div>
-        <div className="block w-14 h-10 bg-black rounded-lg md:hidden">
+        <div className='block w-14 h-10 bg-black rounded-lg md:hidden'>
           <Hamburger />
         </div>
-        <nav className="hidden md:w-[500px] lg:w-[600px] xl:w-[800px] h-[45px] md:block">
+        <nav className='hidden md:w-[500px] lg:w-[600px] xl:w-[800px] h-[45px] md:block'>
           <NavbarMenu />
         </nav>
       </div>
