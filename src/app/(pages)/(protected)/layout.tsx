@@ -1,14 +1,8 @@
 'use client';
 
-import { type Metadata } from 'next';
 import { useSession } from 'next-auth/react';
 import { Toaster } from 'react-hot-toast';
 import { Nav } from './Nav';
-
-export const metadata: Metadata = {
-  title: 'Męski fryzjer | Zarezerwuj wizytę',
-  description: 'Strona rezerwacji wizyty dla salonu fryzierskiego',
-};
 
 export default async function BookVisitLayout({
   children,
