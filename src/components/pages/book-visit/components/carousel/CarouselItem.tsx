@@ -1,6 +1,6 @@
 'use client';
 
-import { Dispatch, SetStateAction, useState } from 'react';
+import { Dispatch, SetStateAction, useState, useEffect } from 'react';
 
 const CarouselItem = ({
   dayNumber,
@@ -13,7 +13,7 @@ const CarouselItem = ({
 }: {
   dayNumber: string;
   dayInWords: string;
-  isToday?: boolean;
+  isToday?: any;
   isPast?: boolean;
   setSelectedDay?: Dispatch<SetStateAction<string>>;
   day?: string;
@@ -25,6 +25,8 @@ const CarouselItem = ({
     setIsSelected((s) => !s);
     day && setSelectedDay && setSelectedDay(day);
   };
+
+  useEffect(() => console.log(isToday), []);
 
   return (
     <li
