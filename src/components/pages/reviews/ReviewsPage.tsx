@@ -7,8 +7,8 @@ const ReviewsPage = () => {
   return (
     <SectionWrapper>
       <ArticleWrapper>
-        <Typography.H1 text="Poznaj opinie Naszych klientów" />
-        <div className="relative w-full h-fit my-8 lg:min-h-[20vh]">
+        <Typography.H1 text='Poznaj opinie Naszych klientów' />
+        <div className='relative w-full h-fit my-8 lg:min-h-[20vh]'>
           <ReviewsList />
         </div>
       </ArticleWrapper>

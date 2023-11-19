@@ -8,12 +8,12 @@ const RatingStars = ({ rating }: { rating: number }) => {
   const ratingStarsCount = convertRatingScoreToArray(rating);
 
   return (
-    <div className="absolute -top-6 left-4 flex gap-2">
+    <div className='absolute -top-6 left-4 flex gap-2'>
       {ratingStarsCount.map((_, idx) => (
         <Image
           key={idx}
           src={starIcon}
-          alt="star icon"
+          alt='star icon'
           width={18}
           height={18}
         />

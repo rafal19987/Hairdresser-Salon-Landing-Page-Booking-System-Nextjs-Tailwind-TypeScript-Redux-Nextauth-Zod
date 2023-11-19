@@ -24,7 +24,7 @@ const AdminDashboard = () => {
             <span>
               {
                 employees.find(
-                  (employee) => employee.id === reservation.executorId
+                  (employee) => employee.id === reservation.executorId,
                 )?.name
               }
             </span>
