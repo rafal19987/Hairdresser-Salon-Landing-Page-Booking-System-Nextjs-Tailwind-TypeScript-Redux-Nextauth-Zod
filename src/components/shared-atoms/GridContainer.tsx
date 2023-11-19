@@ -4,7 +4,7 @@ type TGridContainerProps = {
 
 const GridContainer = ({ children }: TGridContainerProps) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 w-full">
+    <div className='grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 w-full'>
       {children}
     </div>
   );

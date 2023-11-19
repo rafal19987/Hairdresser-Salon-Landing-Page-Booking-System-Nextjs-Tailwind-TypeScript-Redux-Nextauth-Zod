@@ -13,13 +13,13 @@ const HomePage = () => {
   return (
     <SectionWrapper>
       <ArticleWrapper>
-        <div className="flex flex-col flex-grow justify-between w-full md:flex-row">
-          <div className="flex flex-col gap-2">
-            <Typography.H1 text="W Męskiej strefie" />
-            <Typography.H2 text="poczujesz się jak król" align="center" />
+        <div className='flex flex-col flex-grow justify-between w-full md:flex-row'>
+          <div className='flex flex-col gap-2'>
+            <Typography.H1 text='W Męskiej strefie' />
+            <Typography.H2 text='poczujesz się jak król' align='center' />
           </div>
-          <div className="relative mt-6 md:w-2/4">
-            <Image className="object-contain" src={homeImage} alt="" />
+          <div className='relative mt-6 md:w-2/4'>
+            <Image className='object-contain' src={homeImage} alt='' />
           </div>
         </div>
       </ArticleWrapper>

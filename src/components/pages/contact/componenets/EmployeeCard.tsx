@@ -38,8 +38,8 @@ const EmployeeCard = ({
           ReverseCard && 'items-end justify-end '
         } flex flex-col gap-2 lg:flex-row lg:gap-8`}
       >
-        <span className="lg:text-2xl">{name}</span>
-        <span className="lg:text-2xl">{phoneNumber}</span>
+        <span className='lg:text-2xl'>{name}</span>
+        <span className='lg:text-2xl'>{phoneNumber}</span>
       </div>
     </div>
   );

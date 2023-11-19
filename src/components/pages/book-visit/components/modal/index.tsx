@@ -19,7 +19,7 @@ type TDateTimeFormatOptions = {
 
 export const Modal = () => {
   const selectedServiceId = useAppSelector(
-    (state) => state.selectedServiceId.selectedServiceId
+    (state) => state.selectedServiceId.selectedServiceId,
   );
   const [selectedExecutorId, setSelectedExecutorId] = useState<
     null | TServicesStore['id']
@@ -27,7 +27,7 @@ export const Modal = () => {
   const [selectedDay, setSelectedDay] = useState<string>('');
   const [selectedHour, setSelectedHour] = useState<string>('');
   const service = useAppSelector((state) => state.services).find(
-    (service) => service.id === selectedServiceId
+    (service) => service.id === selectedServiceId,
   );
   const dispatch = useAppDispatch();
   const employees = useAppSelector((state) => state.employees);
@@ -70,7 +70,7 @@ export const Modal = () => {
   for (let i = 0; i < 24; i++) {
     const date = new Date(today.getTime() + i * 24 * 60 * 60 * 1000);
     const formattedDate = new Intl.DateTimeFormat('pl-PL', options).format(
-      date
+      date,
     );
     datesArray.push(formattedDate);
   }
@@ -90,7 +90,7 @@ export const Modal = () => {
           day: selectedDay,
         },
         isConfirmed: false,
-      })
+      }),
     );
     toast.success('Reservation created');
     setSelectedDay('');
@@ -107,8 +107,8 @@ export const Modal = () => {
         (r) =>
           r.executorId === selectedExecutorId &&
           r.reservationDate?.day == selectedDay &&
-          r.reservationDate?.hour === hour
-      )
+          r.reservationDate?.hour === hour,
+      ),
   );
   return (
     <section className='fixed w-full h-full'>
@@ -185,7 +185,7 @@ export const Modal = () => {
                       >
                         {
                           employees.find(
-                            (employee) => employee.id === executorId
+                            (employee) => employee.id === executorId,
                           )?.name
                         }
                       </span>

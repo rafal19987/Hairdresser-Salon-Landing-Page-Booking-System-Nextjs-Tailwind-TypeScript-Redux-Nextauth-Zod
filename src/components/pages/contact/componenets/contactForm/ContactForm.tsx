@@ -6,7 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import Label from './Label';
 
 const phoneRegex = new RegExp(
-  /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/
+  /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/,
 );
 
 const formSchema = z.object({
@@ -59,7 +59,7 @@ const ContactForm = () => {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({ name, phoneNumber, message }),
-        }
+        },
       );
       return await res.json();
     } catch (error) {
@@ -70,14 +70,14 @@ const ContactForm = () => {
 
   return (
     <form
-      className="flex flex-col w-full lg:w-[800px]"
+      className='flex flex-col w-full lg:w-[800px]'
       onSubmit={handleSubmit(onSubmit)}
     >
-      <Label htmlFor="imie" value="Imię" />
+      <Label htmlFor='imie' value='Imię' />
       <input
         {...register('name')}
-        type="text"
-        id="name"
+        type='text'
+        id='name'
         className={`h-12 mt-2 p-4 border 
         ${
           errors.name
@@ -86,19 +86,19 @@ const ContactForm = () => {
         }
         ${!nameState.isDirty && ' border-neutral-500 text-neutral-500'}
         bg-transparent  placeholder:text-neutral-500 outline-none`}
-        placeholder="Podaj imię"
+        placeholder='Podaj imię'
         aria-invalid={errors.name ? 'true' : 'false'}
       />
 
-      <span className="w-2/4 h-6 mt-1 pl-4 text-sm text-red-500">
+      <span className='w-2/4 h-6 mt-1 pl-4 text-sm text-red-500'>
         {errors.name?.message}
       </span>
 
-      <Label htmlFor="phoneNumber" value="Number telefonu" />
+      <Label htmlFor='phoneNumber' value='Number telefonu' />
       <input
         {...register('phoneNumber')}
-        type="text"
-        id="phoneNumber"
+        type='text'
+        id='phoneNumber'
         className={`h-12 mt-2 p-4 border 
         ${
           errors.phoneNumber
@@ -108,18 +108,18 @@ const ContactForm = () => {
         ${!phoneNumberState.isDirty && ' border-neutral-500 text-neutral-500'}
         
         bg-transparent  placeholder:text-neutral-500 outline-none`}
-        placeholder="Podaj numer telefonu"
+        placeholder='Podaj numer telefonu'
         aria-invalid={errors.phoneNumber ? 'true' : 'false'}
       />
-      <span className="w-2/4 h-6 mt-1 text-sm text-red-500">
+      <span className='w-2/4 h-6 mt-1 text-sm text-red-500'>
         {errors.phoneNumber?.message}
       </span>
 
-      <Label htmlFor="message" value="Wiadomość" />
+      <Label htmlFor='message' value='Wiadomość' />
 
       <textarea
         {...register('message')}
-        id="message"
+        id='message'
         className={`h-24 mt-2 p-4 border 
         ${
           errors.message
@@ -128,17 +128,17 @@ const ContactForm = () => {
         }
         ${!messageState.isDirty && ' border-neutral-500 text-neutral-500'}
         bg-transparent  placeholder:text-neutral-500 outline-none`}
-        placeholder="Napisz co Ci leży na duszy"
+        placeholder='Napisz co Ci leży na duszy'
         aria-invalid={errors.message ? 'true' : 'false'}
       />
-      <span className="w-full h-6 mt-1 text-sm text-red-500">
+      <span className='w-full h-6 mt-1 text-sm text-red-500'>
         {errors.message?.message}
       </span>
 
       <button
         disabled={!isDirty || isSubmitting}
         onClick={() => reset()}
-        className="w-28 md:w-1/5 h-12 mt-3 border border-green-300 disabled:border-neutral-800 text-green-300 disabled:text-neutral-800 disabled:cursor-not-allowed transition-colors duration-200"
+        className='w-28 md:w-1/5 h-12 mt-3 border border-green-300 disabled:border-neutral-800 text-green-300 disabled:text-neutral-800 disabled:cursor-not-allowed transition-colors duration-200'
       >
         Wyczyść
       </button>
@@ -149,8 +149,8 @@ const ContactForm = () => {
             ? 'border-[var(--gold)] text-[var(--gold)] shadow-cardShadow hover:cursor-pointer hover:translate-y-2 hover:-translate-x-2 '
             : 'disabled:border-neutral-800 disabled:text-neutral-800 disabled:shadow-none disabled:cursor-not-allowed'
         } text-xl hover:shadow-none transition-all duration-300`}
-        type="submit"
-        value="Wyślij"
+        type='submit'
+        value='Wyślij'
       />
     </form>
   );

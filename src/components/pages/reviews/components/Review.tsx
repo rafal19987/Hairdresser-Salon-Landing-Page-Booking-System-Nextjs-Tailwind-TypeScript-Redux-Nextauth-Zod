@@ -13,18 +13,18 @@ const Review = ({ review }: { review: TReviewsProps }) => {
   } = review;
 
   return (
-    <li className="relative flex flex-col my-14 py-4 px-4 gap-4 bg-[#424242] rounded-[20px] ">
+    <li className='relative flex flex-col my-14 py-4 px-4 gap-4 bg-[#424242] rounded-[20px] '>
       <RatingStars rating={rating} />
       <Image
-        className="max-[295px]:hidden absolute -right-4 -top-8"
+        className='max-[295px]:hidden absolute -right-4 -top-8'
         src={profile_photo_url}
-        alt="avatar of author`s review"
+        alt='avatar of author`s review'
         width={64}
         height={64}
       />
       <Typography.Cite text={author_name} />
       <Typography.Blockquote text={text} />
-      <Typography.P text={relative_time_description} align="right" />
+      <Typography.P text={relative_time_description} align='right' />
     </li>
   );
 };

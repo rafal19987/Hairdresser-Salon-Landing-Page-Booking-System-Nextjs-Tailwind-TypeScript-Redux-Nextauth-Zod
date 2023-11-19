@@ -16,7 +16,7 @@ export const selectedServiceIdSlice = createSlice({
   reducers: {
     selectServiceId: (
       state,
-      action: PayloadAction<TSelectedServiceIdStore>
+      action: PayloadAction<TSelectedServiceIdStore>,
     ) => {
       state = action.payload;
       return state;
