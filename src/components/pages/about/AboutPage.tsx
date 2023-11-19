@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useAppSelector } from '@/store/hooks';
 import SectionWrapper from '@/components/shared-atoms/SectionWrapper';
 import ArticleWrapper from '@/components/shared-atoms/ArticleWrapper';
 import ImageContainer from '@/components/shared-atoms/ImageContainer';
@@ -15,58 +16,42 @@ import combIcon from '@/assets/comb-icon.svg';
 import { TEmployeeProps } from '@/types/employeeTypes';
 
 const AboutPage = () => {
-  const [employees, setEmployees] = useState<TEmployeeProps[] | null>(null);
-
-  useEffect(() => {
-    const fetchEmployees = async () => {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_FETCH_API_URL}/employees`,
-        {
-          next: {
-            revalidate: 20,
-          },
-        }
-      );
-      const data = await res.json();
-      setEmployees(data);
-    };
-    fetchEmployees();
-  }, []);
+  const employees = useAppSelector((state) => state.employees);
 
   return (
     <SectionWrapper>
       <ArticleWrapper>
-        <Typography.H1 text="Witamy w Męskiej Strefie" />
+        <Typography.H1 text='Witamy w Męskiej Strefie' />
         <Typography.P
-          text="Nowoczesnym salonie fryzjerskim stworzonym specjalnie dla mężczyzn,
+          text='Nowoczesnym salonie fryzjerskim stworzonym specjalnie dla mężczyzn,
           gdzie pasja do męskiego fryzjerstwa spotyka się z najwyższą jakością
-          usług."
+          usług.'
         />
         <Typography.P
-          text="Nasz salon jest prowadzony przez dwie utalentowane fryzjerki -
+          text='Nasz salon jest prowadzony przez dwie utalentowane fryzjerki -
           Agnieszkę i Wiktorię, które
         posiadają wieloletnie doświadczenie w świecie mody i stylizacji
-        męskich włosów."
+        męskich włosów.'
         />
         <FlexContainer>
-          <ImageContainer rounded="none" mt={4} width="full">
-            <ImageItem imageSrc={firstImage} imageAlt="Salon image" />
+          <ImageContainer rounded='none' mt={4} width='full'>
+            <ImageItem photo={firstImage} imageAlt='Salon image' />
           </ImageContainer>
           <Typography.Blockquote
-            text="Fryzjerstwo to sztuka przekształcania włosów w dzieło sztuki.~Vidal
-          Sassoon"
+            text='Fryzjerstwo to sztuka przekształcania włosów w dzieło sztuki.~Vidal
+          Sassoon'
           />
         </FlexContainer>
       </ArticleWrapper>
 
       <ArticleWrapper>
-        <Typography.H2 text="Nasze specjalistki" />
+        <Typography.H2 text='Nasze specjalistki' />
         <EmployeeContainer>
           {employees?.map((employee) => (
             <div key={employee.id}>
               <EmployeeCard
-                imageAlt=""
-                imageSrc={employee.photo}
+                imageAlt=''
+                photo={employee.photo}
                 imageCaption={employee.name}
                 blockqoute={employee.quote}
               />
@@ -76,13 +61,13 @@ const AboutPage = () => {
       </ArticleWrapper>
 
       <ArticleWrapper>
-        <Typography.H2 text="Zapraszamy" />
-        <Typography.P text="Do odwiedzenia naszego salonu i doświadczenia niepowtarzalnej atmosfery miejsca, w którym innowacyjność i kreatywność spotykają się z profesjonalizmem i pasją do fryzjerstwa męskiego" />
+        <Typography.H2 text='Zapraszamy' />
+        <Typography.P text='Do odwiedzenia naszego salonu i doświadczenia niepowtarzalnej atmosfery miejsca, w którym innowacyjność i kreatywność spotykają się z profesjonalizmem i pasją do fryzjerstwa męskiego' />
         <FlexContainer>
-          <ImageContainer rounded="none" mt={4}>
-            <ImageItem imageSrc={salonImage} imageAlt="Salon image" />
+          <ImageContainer rounded='none' mt={4}>
+            <ImageItem photo={salonImage} imageAlt='Salon image' />
           </ImageContainer>
-          <Typography.Blockquote text="W fryzjerstwie chodzi o tworzenie piękna, ale takżo o wpływanie na ludzkie samopoczucie i pewność siebie. ~Sam mcknight" />
+          <Typography.Blockquote text='W fryzjerstwie chodzi o tworzenie piękna, ale takżo o wpływanie na ludzkie samopoczucie i pewność siebie. ~Sam mcknight' />
         </FlexContainer>
       </ArticleWrapper>
     </SectionWrapper>

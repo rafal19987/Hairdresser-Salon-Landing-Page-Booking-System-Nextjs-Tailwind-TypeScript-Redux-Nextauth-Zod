@@ -17,7 +17,7 @@ const Hamburger = () => {
   return (
     <>
       <button
-        className="flex flex-col items-center justify-evenly w-full h-full bg-[var(--hamburger-bg)] rounded-lg overflow-hidden"
+        className='flex flex-col items-center justify-evenly w-full h-full bg-[var(--hamburger-bg)] rounded-lg overflow-hidden'
         onClick={clickHandler}
       >
         <span

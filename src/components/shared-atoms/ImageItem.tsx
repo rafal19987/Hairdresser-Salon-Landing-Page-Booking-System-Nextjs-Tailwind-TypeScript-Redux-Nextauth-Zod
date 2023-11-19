@@ -4,17 +4,17 @@ import Image, { StaticImageData } from 'next/image';
 import { useState } from 'react';
 
 export type TImageItemProps = {
-  imageSrc: StaticImageData;
+  photo: StaticImageData | string;
   imageAlt: string;
 };
 
-const ImageItem = ({ imageSrc, imageAlt }: TImageItemProps) => {
+const ImageItem = ({ photo, imageAlt }: TImageItemProps) => {
   const [isLoading, setIsLoading] = useState(true);
 
   return (
     <Image
       alt={imageAlt}
-      src={imageSrc}
+      src={photo}
       fill
       className={`object-cover transition-all duration-500
       ${

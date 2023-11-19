@@ -15,40 +15,40 @@ const ContactPage = () => {
   return (
     <SectionWrapper>
       <ArticleWrapper>
-        <Typography.H1 text="Kontakt" />
-        <FlexContainer gap="8">
-          <ImageContainer rounded="none">
+        <Typography.H1 text='Kontakt' />
+        <FlexContainer gap='8'>
+          <ImageContainer rounded='none'>
             <ImageItem
-              imageAlt="google location map"
-              imageSrc={googleMapsScreen}
+              imageAlt='google location map'
+              photo={googleMapsScreen}
             />
           </ImageContainer>
-          <FlexContainer gap="2">
-            <Typography.H2 text="Godziny otwarcia:" align="center" />
-            <Typography.H3 text="Pon-PT 8:00 - 18:00" />
-            <Typography.H3 text="Sobota 7:00 - 20:00" />
+          <FlexContainer gap='2'>
+            <Typography.H2 text='Godziny otwarcia:' align='center' />
+            <Typography.H3 text='Pon-PT 8:00 - 18:00' />
+            <Typography.H3 text='Sobota 7:00 - 20:00' />
           </FlexContainer>
         </FlexContainer>
       </ArticleWrapper>
       <ArticleWrapper>
         <EmployeeContainer>
           <EmployeeCard
-            blockqoute="500 501 502"
-            imageAlt="Wiktoria"
-            imageSrc={employee1}
-            imageCaption="Wiktoria"
+            blockqoute='500 501 502'
+            imageAlt='Wiktoria'
+            photo={employee1}
+            imageCaption='Wiktoria'
           />
           <EmployeeCard
-            blockqoute="503 504 505"
-            imageAlt="Agnieszka"
-            imageSrc={employee2}
-            imageCaption="Agnieszka"
+            blockqoute='503 504 505'
+            imageAlt='Agnieszka'
+            photo={employee2}
+            imageCaption='Agnieszka'
           />
         </EmployeeContainer>
       </ArticleWrapper>
       <ArticleWrapper>
-        <Typography.H2 text="Wyślij zapytanie" align="center" />
-        <div className="mt-12 mb-12 w-full lg:flex lg:justify-center">
+        <Typography.H2 text='Wyślij zapytanie' align='center' />
+        <div className='mt-12 mb-12 w-full lg:flex lg:justify-center'>
           <ContactForm />
         </div>
       </ArticleWrapper>

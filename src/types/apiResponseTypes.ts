@@ -1,3 +1,5 @@
+import { type StaticImageData } from 'next/image';
+
 export type TDataFromApiProps = {
   html_attributions: any[];
   result: {
@@ -91,10 +93,10 @@ export type TReviewsProps = {
   author_url?: string;
   language?: string;
   original_language?: string;
-  profile_photo_url: string;
+  profile_photo_url: string | StaticImageData;
   rating: number;
   relative_time_description: string;
   text: string;
-  time: number;
+  time?: number;
   translated?: boolean;
 };

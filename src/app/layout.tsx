@@ -1,5 +1,6 @@
 import { ThemeContextProvider } from '@/context/ThemeContext';
-import { ReduxProvider } from '@/redux/provider';
+import { NextAuthProvider } from './NextAuthProvider';
+import { ReduxProvider } from '@/store/provider';
 import './globals.css';
 
 export const metadata = {
@@ -13,10 +14,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pl">
+    <html lang='pl'>
       <body>
         <ThemeContextProvider>
-          <ReduxProvider>{children}</ReduxProvider>
+          <NextAuthProvider>
+            <ReduxProvider>{children}</ReduxProvider>
+          </NextAuthProvider>
         </ThemeContextProvider>
       </body>
     </html>
