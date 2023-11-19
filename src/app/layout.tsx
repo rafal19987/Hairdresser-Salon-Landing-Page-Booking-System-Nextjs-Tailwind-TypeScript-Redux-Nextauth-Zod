@@ -1,4 +1,5 @@
 import { ThemeContextProvider } from '@/context/ThemeContext';
+import { NextAuthProvider } from './NextAuthProvider';
 import { ReduxProvider } from '@/store/provider';
 import './globals.css';
 
@@ -16,7 +17,9 @@ export default function RootLayout({
     <html lang='pl'>
       <body>
         <ThemeContextProvider>
-          <ReduxProvider>{children}</ReduxProvider>
+          <NextAuthProvider>
+            <ReduxProvider>{children}</ReduxProvider>
+          </NextAuthProvider>
         </ThemeContextProvider>
       </body>
     </html>
