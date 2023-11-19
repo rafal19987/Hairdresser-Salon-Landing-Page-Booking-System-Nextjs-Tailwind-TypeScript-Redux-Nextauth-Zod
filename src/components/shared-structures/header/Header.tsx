@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import navigationRoutes from '@/helpers/routes/navigationRoutes';
 import Logo from '@/components/shared-atoms/logo/Logo';
-import ChangeThemeBtn from '@/components/shared-atoms/changeThemeBtn/ChangeThemeBtn';
 import Hamburger from '@/components/shared-structures/header/hamburger/Hamburger';
 import NavbarMenu from '@/components/shared-structures/header/navbarMenu/NavbarMenu';
 import logo from '@/assets/logo.svg';
@@ -20,9 +19,6 @@ const Header = () => {
             </h1>
           </div>
         </Link>
-        <div>
-          <ChangeThemeBtn />
-        </div>
         <div className='block w-14 h-10 bg-black rounded-lg md:hidden'>
           <Hamburger />
         </div>
