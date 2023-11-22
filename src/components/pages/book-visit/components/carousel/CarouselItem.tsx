@@ -5,7 +5,6 @@ import { Dispatch, SetStateAction, useState, useEffect } from 'react';
 const CarouselItem = ({
   dayNumber,
   dayInWords,
-  isToday,
   isPast,
   setSelectedDay,
   day,
@@ -13,7 +12,6 @@ const CarouselItem = ({
 }: {
   dayNumber: string;
   dayInWords: string;
-  isToday?: any;
   isPast?: boolean;
   setSelectedDay?: Dispatch<SetStateAction<string>>;
   day?: string;
@@ -25,8 +23,6 @@ const CarouselItem = ({
     setIsSelected((s) => !s);
     day && setSelectedDay && setSelectedDay(day);
   };
-
-  useEffect(() => console.log(isToday), []);
 
   return (
     <li
