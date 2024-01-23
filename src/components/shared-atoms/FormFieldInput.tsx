@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils';
-import { HTMLInputTypeAttribute, InputHTMLAttributes } from 'react';
+import { InputHTMLAttributes } from 'react';
 import {
   FieldErrors,
   FieldValues,
@@ -7,33 +7,30 @@ import {
   UseFormRegister,
 } from 'react-hook-form';
 
-type TInputProps<T extends FieldValues> =
-  InputHTMLAttributes<HTMLInputElement> & {
-    className?: string;
-    type: HTMLInputTypeAttribute;
-    id: Path<T>;
-    placeholder: string;
-    register: UseFormRegister<T>;
-    errors: FieldErrors<T>;
-    ariaLabel: string;
-  };
+type TInputProps<T extends FieldValues> = Required<
+  Pick<
+    InputHTMLAttributes<HTMLInputElement>,
+    'placeholder' | 'type' | 'aria-label'
+  >
+> & {
+  className?: string;
+  id: Path<T>;
+  register: UseFormRegister<T>;
+  errors: FieldErrors<T>;
+};
 
 export const FormFieldInput = <T extends FieldValues>({
   className,
-  type,
   id,
   register,
   errors,
-  ariaLabel,
   ...attributes
 }: TInputProps<T>) => {
   return (
     <>
       <input
-        type={type}
         id={id}
-        aria-label={ariaLabel}
-        aria-describedby={`${id}ErrorMsg}`}
+        aria-describedby={`${id}ErrorMsg`}
         aria-invalid={errors[id] ? 'true' : 'false'}
         {...register(id)}
         {...attributes}
