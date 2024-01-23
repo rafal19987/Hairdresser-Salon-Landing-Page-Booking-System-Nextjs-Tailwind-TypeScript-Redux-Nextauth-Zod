@@ -1,4 +1,4 @@
-'use sever';
+'use server';
 
 // import * as bcrypt from 'bcrypt';
 import { User } from '@prisma/client';
