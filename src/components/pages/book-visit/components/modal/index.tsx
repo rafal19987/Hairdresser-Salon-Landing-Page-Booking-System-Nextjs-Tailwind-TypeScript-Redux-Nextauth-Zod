@@ -129,10 +129,10 @@ export const Modal = () => {
                   day={day}
                   setSelectedDay={setSelectedDay}
                   selectedDay={selectedDay}
-                  isToday={
-                    day ===
-                    new Intl.DateTimeFormat('pl-PL', options).format(new Date())
-                  }
+                  // isToday={
+                  //   day ===
+                  //   new Intl.DateTimeFormat('pl-PL', options).format(new Date())
+                  // }
                 />
               );
             })}
