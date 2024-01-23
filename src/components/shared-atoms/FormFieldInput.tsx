@@ -12,12 +12,13 @@ type TInputProps<T extends FieldValues> = Required<
     InputHTMLAttributes<HTMLInputElement>,
     'placeholder' | 'type' | 'aria-label'
   >
-> & {
-  className?: string;
-  id: Path<T>;
-  register: UseFormRegister<T>;
-  errors: FieldErrors<T>;
-};
+> &
+  InputHTMLAttributes<HTMLInputElement> & {
+    className?: string;
+    id: Path<T>;
+    register: UseFormRegister<T>;
+    errors: FieldErrors<T>;
+  };
 
 export const FormFieldInput = <T extends FieldValues>({
   className,
