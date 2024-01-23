@@ -1,7 +1,8 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
-import thunk from 'redux-thunk';
+import { thunk } from 'redux-thunk';
+import type { Middleware } from '@reduxjs/toolkit';
 import employeesReducer from './features/employees/employeesSlice';
 import servicesReducer from './features/services/servicesSlice';
 import reservationsReducer from './features/reservations/reservationsSlice';
@@ -24,7 +25,7 @@ const persistedReducers = persistReducer(persistConfig, rootReducer);
 export const store = configureStore({
   reducer: persistedReducers,
   devTools: process.env.NODE_ENV === 'production' ? false : true,
-  middleware: [thunk],
+  // middleware: [thunk as unknown as Middleware],
 });
 
 export const persistor = persistStore(store);
