@@ -1,7 +1,7 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
-import { thunk } from 'redux-thunk';
+import thunk from 'redux-thunk';
 import type { Middleware } from '@reduxjs/toolkit';
 import employeesReducer from './features/employees/employeesSlice';
 import servicesReducer from './features/services/servicesSlice';
