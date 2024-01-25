@@ -1,11 +1,6 @@
 import { cn } from '@/lib/utils';
 import { InputHTMLAttributes } from 'react';
-import {
-  FieldErrors,
-  FieldValues,
-  Path,
-  UseFormRegister,
-} from 'react-hook-form';
+import { FieldValues, Path, UseFormRegister } from 'react-hook-form';
 
 type TInputProps<T extends FieldValues> = Required<
   Pick<
@@ -17,14 +12,14 @@ type TInputProps<T extends FieldValues> = Required<
     className?: string;
     id: Path<T>;
     register: UseFormRegister<T>;
-    errors: FieldErrors<T>;
+    errorMsg?: string;
   };
 
 export const FormFieldInput = <T extends FieldValues>({
   className,
   id,
   register,
-  errors,
+  errorMsg,
   ...attributes
 }: TInputProps<T>) => {
   return (
@@ -32,7 +27,7 @@ export const FormFieldInput = <T extends FieldValues>({
       <input
         id={id}
         aria-describedby={`${id}ErrorMsg`}
-        aria-invalid={errors[id] ? 'true' : 'false'}
+        aria-invalid={errorMsg ? 'true' : 'false'}
         {...register(id)}
         {...attributes}
         className={cn(
@@ -40,9 +35,9 @@ export const FormFieldInput = <T extends FieldValues>({
           className,
         )}
       />
-      {errors[id] && (
+      {errorMsg && (
         <p id={`${id}ErrorMsg`} role='status' className='text-xs text-red-500'>
-          {errors[id]?.message as string}
+          {errorMsg}
         </p>
       )}
     </>
