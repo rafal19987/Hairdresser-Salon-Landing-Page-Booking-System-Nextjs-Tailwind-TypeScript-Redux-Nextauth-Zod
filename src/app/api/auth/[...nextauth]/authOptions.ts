@@ -3,8 +3,24 @@ import { type AuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import GoogleProvider from 'next-auth/providers/google';
 import * as bcrypt from 'bcrypt';
+import { type User } from '@prisma/client';
 
 export const authOptions: AuthOptions = {
+  secret: process.env.SECRET,
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) token.user = user as User;
+      return token;
+    },
+
+    async session({ token, session }) {
+      session.user = token.user;
+      return session;
+    },
+  },
+  pages: {
+    signIn: '/login',
+  },
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID ?? '',
@@ -49,5 +65,4 @@ export const authOptions: AuthOptions = {
       },
     }),
   ],
-  secret: process.env.SECRET,
 };
