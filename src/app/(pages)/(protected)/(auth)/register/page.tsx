@@ -67,13 +67,13 @@ function RegistrationPage() {
         className='flex flex-col items-start justify-center grow gap-1 h-full'
       >
         <FormFieldContainer>
-          <FormFieldLabel htmlFor='username' text='Imię' />
+          <FormFieldLabel htmlFor='name' text='Imię' />
           <FormFieldInput
             id='name'
             type='text'
             placeholder='Wprowadź Imię'
             aria-label='Wprowadź Imię'
-            errors={errors}
+            errorMsg={errors.name?.message}
             register={register}
           />
         </FormFieldContainer>
@@ -85,7 +85,7 @@ function RegistrationPage() {
             type='text'
             placeholder='Wprowadź adres email'
             aria-label='Wprowadź adres email'
-            errors={errors}
+            errorMsg={errors.email?.message}
             register={register}
           />
         </FormFieldContainer>
@@ -97,7 +97,7 @@ function RegistrationPage() {
             type='tel'
             placeholder='Wprowadź numer telefonu'
             aria-label='Wprowadź numer telefonu'
-            errors={errors}
+            errorMsg={errors.phone?.message}
             register={register}
           />
         </FormFieldContainer>
@@ -109,7 +109,7 @@ function RegistrationPage() {
             type='password'
             placeholder='Wprowadź hasło'
             aria-label='Wprowadź hasło'
-            errors={errors}
+            errorMsg={errors.password?.message}
             register={register}
           />
         </FormFieldContainer>
@@ -121,7 +121,7 @@ function RegistrationPage() {
             type='password'
             placeholder='Wprowadź ponownie hasło'
             aria-label='Wprowadź ponownie hasło'
-            errors={errors}
+            errorMsg={errors.confirmPassword?.message}
             register={register}
           />
         </FormFieldContainer>
