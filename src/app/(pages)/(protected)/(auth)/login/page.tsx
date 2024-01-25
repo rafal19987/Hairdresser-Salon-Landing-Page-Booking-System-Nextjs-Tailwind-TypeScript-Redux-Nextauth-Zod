@@ -12,10 +12,6 @@ import { FormFieldInput } from '@/components/shared-atoms/FormFieldInput';
 import { FormFieldLabel } from '@/components/shared-atoms/FormFieldLabel';
 import { FormFieldContainer } from '@/components/shared-atoms/FormFieldContainer';
 
-interface Props {
-  callbackUrl?: string;
-}
-
 const userSchema = z.object({
   email: z.string().email('Podaj poprawny email'),
   password: z.string().min(1, 'Wprowadź swoje hasło'),
@@ -23,7 +19,7 @@ const userSchema = z.object({
 
 type TUser = z.infer<typeof userSchema>;
 
-function LoginPage(props: Props) {
+function LoginPage() {
   const router = useRouter();
   const {
     register,
@@ -44,7 +40,7 @@ function LoginPage(props: Props) {
       return;
     }
     toast.success('Zalogowano');
-    router.push(props.callbackUrl ? props.callbackUrl : '/');
+    router.push('/book');
   };
 
   return (
@@ -60,7 +56,7 @@ function LoginPage(props: Props) {
             type='text'
             placeholder='Wprowadź adres email'
             aria-label='Wprowadź adres email'
-            errors={errors}
+            errorMsg={errors.email?.message}
             register={register}
           />
         </FormFieldContainer>
@@ -72,10 +68,13 @@ function LoginPage(props: Props) {
             type='password'
             placeholder='Wprowadź hasło'
             aria-label='Wprowadź hasło'
-            errors={errors}
+            errorMsg={errors.password?.message}
             register={register}
           />
         </FormFieldContainer>
+        <Link className='text-xs mt-2 hover:underline' href='/auth/forgotPass'>
+          Zapomniałeś hasła?
+        </Link>
 
         <div className='self-center mt-12 text-center'>
           <button
@@ -85,6 +84,12 @@ function LoginPage(props: Props) {
           >
             {isSubmitting ? 'Logowanie...' : 'Zaloguj'}
           </button>
+        </div>
+        <div className='flex gap-2'>
+          <p className='text-xs mt-2 hover:underline'>Nie posiadasz konta?</p>
+          <Link className='text-xs mt-2 hover:underline' href='/register'>
+            Zarejestruj się.
+          </Link>
         </div>
       </form>
     </div>
