@@ -1,4 +1,6 @@
+import Handlebars from 'handlebars';
 import nodemailer from 'nodemailer';
+import { activationTemplate } from './emailTemplates/activation';
 
 export async function sendMail({
   to,
@@ -39,4 +41,12 @@ export async function sendMail({
   } catch (error) {
     console.log(error);
   }
+}
+
+export function compileActivationTemplate(name: string, url: string) {
+  const template = Handlebars.compile(activationTemplate);
+
+  const htmlBody = template({ name, url });
+
+  return htmlBody;
 }
