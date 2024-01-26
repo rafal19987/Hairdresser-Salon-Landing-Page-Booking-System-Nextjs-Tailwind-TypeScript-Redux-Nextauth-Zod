@@ -59,6 +59,9 @@ export const authOptions: AuthOptions = {
         if (!isPasswordCorrect)
           throw new Error('Nazwa użytkownika lub hasło nie są poprawne');
 
+        if (!user.emailVerified)
+          throw new Error('Przed zalogowanie potwierdź swoją rejestrację');
+
         const { password, ...userWithoutPassword } = user;
 
         return userWithoutPassword;
