@@ -2,6 +2,7 @@ import { ThemeContextProvider } from '@/context/ThemeContext';
 import { NextAuthProvider } from './NextAuthProvider';
 import { ReduxProvider } from '@/store/provider';
 import './globals.css';
+import { TailwindIndicator } from '@/components/shared-atoms/TailwindIndicator';
 
 export const metadata = {
   title: 'Męski fryzjer',
@@ -19,6 +20,7 @@ export default function RootLayout({
         <ThemeContextProvider>
           <NextAuthProvider>
             <ReduxProvider>{children}</ReduxProvider>
+            <TailwindIndicator />
           </NextAuthProvider>
         </ThemeContextProvider>
       </body>
