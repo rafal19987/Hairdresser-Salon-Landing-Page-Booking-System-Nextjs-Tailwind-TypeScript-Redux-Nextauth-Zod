@@ -1,6 +1,7 @@
 import Handlebars from 'handlebars';
 import nodemailer from 'nodemailer';
 import { activationTemplate } from './emailTemplates/activation';
+import { forgotPasswordTemplate } from './emailTemplates/forgotPassword';
 
 export async function sendMail({
   to,
@@ -45,6 +46,14 @@ export async function sendMail({
 
 export function compileActivationTemplate(name: string, url: string) {
   const template = Handlebars.compile(activationTemplate);
+
+  const htmlBody = template({ name, url });
+
+  return htmlBody;
+}
+
+export function compileForgotPasswordTemplate(name: string, url: string) {
+  const template = Handlebars.compile(forgotPasswordTemplate);
 
   const htmlBody = template({ name, url });
 

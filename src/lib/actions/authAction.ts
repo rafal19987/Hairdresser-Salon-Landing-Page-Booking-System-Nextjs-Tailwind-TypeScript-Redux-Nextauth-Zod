@@ -3,7 +3,11 @@
 import { User } from '@prisma/client';
 import prisma from '../prisma';
 import * as bcrypt from 'bcrypt';
-import { compileActivationTemplate, sendMail } from '../mail';
+import {
+  compileActivationTemplate,
+  compileForgotPasswordTemplate,
+  sendMail,
+} from '../mail';
 import { signJwt, verifyJwt } from '../jwt';
 
 export async function registerUser(
@@ -37,30 +41,70 @@ export async function registerUser(
 
 type ActivateUserFunc = (
   jwtUserId: string,
-) => Promise<'userNotExist' | 'alreadyActivated' | 'success'>;
+) => Promise<'userNotExist' | 'alreadyActivated' | 'success' | 'error'>;
 
 export const activateUser: ActivateUserFunc = async (jwtUserId) => {
-  const payload = verifyJwt(jwtUserId);
-  const userId = payload?.id;
+  try {
+    const payload = verifyJwt(jwtUserId);
+    const userId = payload?.id;
 
-  const user = await prisma.user?.findUnique({
-    where: {
-      id: userId,
-    },
-  });
+    const user = await prisma.user?.findUnique({
+      where: {
+        id: userId,
+      },
+    });
 
-  if (!user) return 'userNotExist';
+    if (!user) return 'userNotExist';
 
-  if (user.emailVerified) return 'alreadyActivated';
+    if (user.emailVerified) return 'alreadyActivated';
 
-  const result = await prisma.user.update({
-    where: {
+    const result = await prisma.user.update({
+      where: {
+        id: user.id,
+      },
+      data: {
+        emailVerified: new Date(),
+      },
+    });
+
+    return 'success';
+  } catch (error) {
+    console.log(error);
+    return 'error';
+  }
+};
+
+type ForgotPasswordFunc = (
+  email: string,
+) => Promise<'userNotExist' | 'success' | 'error'>;
+
+export const forgotPassword: ForgotPasswordFunc = async (email) => {
+  try {
+    const user = await prisma.user.findUnique({
+      where: {
+        email,
+      },
+    });
+
+    if (!user) return 'userNotExist';
+
+    const jwtUserId = signJwt({
       id: user.id,
-    },
-    data: {
-      emailVerified: new Date(),
-    },
-  });
+    });
 
-  return 'success';
+    const resetPasswordUrl = `${process.env.HOST_URL}/forgotPassword/${jwtUserId}`;
+
+    const htmlBody = compileForgotPasswordTemplate(user.name, resetPasswordUrl);
+
+    await sendMail({
+      to: user.email,
+      subject: 'Zresetuj swoje hasło',
+      body: htmlBody,
+    });
+
+    return 'success';
+  } catch (error) {
+    console.log(error);
+    return 'error';
+  }
 };
