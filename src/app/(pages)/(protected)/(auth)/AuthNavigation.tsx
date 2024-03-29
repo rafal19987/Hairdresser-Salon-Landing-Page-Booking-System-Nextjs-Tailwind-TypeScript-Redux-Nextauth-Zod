@@ -6,9 +6,10 @@ import { usePathname } from 'next/navigation';
 export const AuthNavigation = () => {
   const pathname = usePathname();
   const isLoginPage: boolean = pathname === '/login';
-  const isActivationPage: boolean = pathname.startsWith('/activation');
+  const shouldBeVisible: boolean =
+    pathname.startsWith('/login') || pathname.startsWith('/register');
 
-  if (isActivationPage) return null;
+  if (!shouldBeVisible) return null;
 
   return (
     <>
