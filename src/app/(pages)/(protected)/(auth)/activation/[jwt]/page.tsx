@@ -1,4 +1,3 @@
-import { P } from '@/components/shared-atoms/typography/Typography';
 import { activateUser } from '@/lib/actions/authAction';
 
 interface Props {
