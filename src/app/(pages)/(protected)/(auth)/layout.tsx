@@ -1,25 +1,31 @@
+import { redirect } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { AuthNavigation } from './AuthNavigation';
 import image from '@/assets/about-page-first-image.jpg';
 import { Toaster } from 'react-hot-toast';
+import { getServerSession } from 'next-auth';
 
 export default async function AuthLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const session = await getServerSession();
+
+  if (session?.user) redirect('/book');
+
   return (
-    <section className='flex flex-col w-1/2 h-4/5'>
+    <section className='flex flex-col grow w-full h-full max-w-[1400px] md:h-screen border-4 border-violet-800'>
       <Toaster />
-      <div className='flex flex-col items-center justify-between w-full h-fit'>
-        <h1 className='text-3xl'>System rezerwacji salonu fryzjerskiego</h1>
+      <div className='flex flex-col items-center md:justify-between gap-8 h-full border p-4 md:p-0 w-full md:h-fit'>
+        {/* <h1 className='text-3xl text-center'>System rezerwacji Męska Strefa</h1> */}
         <Link className='self-start' href='/'>
           Powrót do strony głównej
         </Link>
       </div>
-      <div className='flex w-full h-full'>
-        <div className='relative w-1/2 h-full'>
+      <div className='flex flex-col w-full h-full xl:flex-row border-2 border-red-500'>
+        <div className='relative flex grow w-full h-52 xl:h-auto border'>
           <Image
             className='object-cover'
             src={image}
@@ -29,11 +35,11 @@ export default async function AuthLayout({
             priority
           />
         </div>
-        <div className='flex flex-col w-1/2 h-full '>
+        <div className='flex flex-col w-full h-full'>
           <div className='flex items-center justify-center h-24 w-full px-12'>
             <AuthNavigation />
           </div>
-          <div className='h-full px-12 py-4'>{children}</div>
+          <div className='h-full p-4'>{children}</div>
         </div>
       </div>
     </section>
