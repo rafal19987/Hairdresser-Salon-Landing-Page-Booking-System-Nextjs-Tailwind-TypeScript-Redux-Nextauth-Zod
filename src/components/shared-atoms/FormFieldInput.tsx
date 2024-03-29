@@ -23,7 +23,7 @@ export const FormFieldInput = <T extends FieldValues>({
   ...attributes
 }: TInputProps<T>) => {
   return (
-    <>
+    <div className='flex flex-col gap-2'>
       <input
         id={id}
         aria-describedby={`${id}ErrorMsg`}
@@ -31,15 +31,15 @@ export const FormFieldInput = <T extends FieldValues>({
         {...register(id)}
         {...attributes}
         className={cn(
-          'w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded appearance-none focus:outline-none focus:shadow-outline',
+          `w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded appearance-none focus:outline-none focus:shadow-outline ${
+            errorMsg && 'border-red-500'
+          }`,
           className,
         )}
       />
-      {errorMsg && (
-        <p id={`${id}ErrorMsg`} role='status' className='text-xs text-red-500'>
-          {errorMsg}
-        </p>
-      )}
-    </>
+      <p id={`${id}ErrorMsg`} role='status' className='text-xs text-red-500'>
+        {errorMsg ? errorMsg : ''}
+      </p>
+    </div>
   );
 };
