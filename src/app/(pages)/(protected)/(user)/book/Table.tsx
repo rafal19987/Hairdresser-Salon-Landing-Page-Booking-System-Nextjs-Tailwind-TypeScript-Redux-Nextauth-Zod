@@ -20,8 +20,6 @@ export const Table = () => {
           <th className='w-40 text-start'>
             <span>Cena</span>
           </th>
-          <th className='text-start w-40'>Umów wizytę</th>
-          <th></th>
         </tr>
       </thead>
       <tbody>

@@ -11,7 +11,7 @@ const AdminDashboard = () => {
   const services = useAppSelector((state) => state.services);
 
   return (
-    <div>
+    <>
       <ul className='flex flex-col gap-4'>
         {reservations.map((reservation) => (
           <li key={reservation.id} className='flex items-center justify-evenly'>
@@ -36,7 +36,7 @@ const AdminDashboard = () => {
       <button onClick={() => dispatch(deleteAllReserations())}>
         Usuń rezerwacje
       </button>
-    </div>
+    </>
   );
 };
 
