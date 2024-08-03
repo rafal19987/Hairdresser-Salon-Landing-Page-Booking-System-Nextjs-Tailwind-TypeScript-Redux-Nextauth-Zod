@@ -1,0 +1,15 @@
+import Image from 'next/image';
+import confirmIcon from '@/assets/confirm-icon.svg';
+
+function ResetPasswordSendConfirmPage() {
+  return (
+    <div className='flex flex-col gap-8 items-center justify-center w-full h-52 p-4 rounded-xl border border-[#555555] bg-[#FFD700]/30'>
+      <Image className='' src={confirmIcon} alt='' aria-hidden />
+      <p className='text-center text-[#555555]'>
+        Na Twój adres email został wysłany link resetujący hasło.
+      </p>
+    </div>
+  );
+}
+
+export default ResetPasswordSendConfirmPage;

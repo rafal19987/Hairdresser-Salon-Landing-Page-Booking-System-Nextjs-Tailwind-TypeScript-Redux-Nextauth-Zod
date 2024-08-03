@@ -4,10 +4,11 @@ import Link from 'next/link';
 import { signIn, signOut } from 'next-auth/react';
 import { useEffect } from 'react';
 
-type User = {};
-
 export const Nav = ({ user }: { user: any }) => {
   useEffect(() => console.log(user), [user]);
+
+  if (!user) return null;
+
   return (
     <nav className='flex items-center justify-between h-24 px-8 bg-[#494949]'>
       <Link href='#' className='font-permanentMarker text-[#FFD700] text-xl'>

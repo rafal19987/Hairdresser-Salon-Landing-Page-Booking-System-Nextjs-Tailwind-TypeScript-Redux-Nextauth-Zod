@@ -6,23 +6,27 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "preview": "next build && next start",
     "typecheck": "tsc --noEmit",
-    "format": "prettier --write . && eslint --fix ."
+    "format": "prettier --write . && eslint --fix .",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.1.1",
+    "@prisma/client": "^5.8.1",
     "@reduxjs/toolkit": "^1.9.7",
-    "@supabase/auth-helpers-nextjs": "^0.8.1",
-    "@supabase/supabase-js": "^2.32.0",
     "@tanstack/react-query": "^4.29.19",
     "@tanstack/react-table": "^8.9.3",
+    "bcrypt": "^5.1.1",
+    "handlebars": "^4.7.8",
+    "jsonwebtoken": "^9.0.2",
     "next": "13.4.7",
     "next-auth": "^4.24.3",
+    "nodemailer": "^6.9.8",
     "postcss": "8.4.24",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -35,20 +39,28 @@
     "tailwindcss": "3.3.2",
     "typescript": "5.1.3",
     "uuidv4": "^6.2.13",
+    "validator": "^13.11.0",
     "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/node": "20.3.1",
+    "@types/nodemailer": "^6.4.14",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
     "@types/react-redux": "^7.1.27",
+    "@types/validator": "^13.11.8",
     "@typescript-eslint/parser": "^6.7.5",
     "autoprefixer": "10.4.14",
+    "clsx": "^2.1.0",
     "eslint": "8.43.0",
     "eslint-config-next": "13.4.7",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-react": "^7.33.2",
-    "@types/node": "20.3.1",
     "eslint-plugin-tailwindcss": "^3.13.0",
-    "prettier": "3.1.0"
+    "prettier": "3.1.0",
+    "prisma": "^5.8.1",
+    "tailwind-merge": "^2.2.1"
   }
 }

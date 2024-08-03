@@ -14,15 +14,9 @@ import employee2 from '@/assets/employee-2-face-image-big.png';
 const ContactPage = () => {
   return (
     <SectionWrapper>
+      <Typography.H1 text='Kontakt' />
       <ArticleWrapper>
-        <Typography.H1 text='Kontakt' />
         <FlexContainer gap='8'>
-          <ImageContainer rounded='none'>
-            <ImageItem
-              imageAlt='google location map'
-              photo={googleMapsScreen}
-            />
-          </ImageContainer>
           <FlexContainer gap='2'>
             <Typography.H2 text='Godziny otwarcia:' align='center' />
             <Typography.H3 text='Pon-PT 8:00 - 18:00' />
