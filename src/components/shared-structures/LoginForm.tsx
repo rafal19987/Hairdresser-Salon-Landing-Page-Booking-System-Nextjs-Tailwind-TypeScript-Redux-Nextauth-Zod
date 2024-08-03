@@ -31,16 +31,14 @@ export const LoginForm = () => {
 
   const onSubmit: SubmitHandler<TUser> = async (data) => {
     const result = await signIn('credentials', {
-      redirect: false,
+      redirect: true,
       username: data.email,
       password: data.password,
     });
     if (!result?.ok) {
       toast.error(result?.error!);
-      return;
     }
-    toast.success('Zalogowano');
-    router.push('/book');
+    return;
   };
 
   return (
