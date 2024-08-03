@@ -6,7 +6,10 @@ import * as bcrypt from 'bcrypt';
 import { type User } from '@prisma/client';
 
 export const authOptions: AuthOptions = {
-  secret: process.env.SECRET,
+  session: {
+    strategy: 'jwt',
+  },
+  secret: process.env.NEXTAUTH_SECRET!,
   callbacks: {
     async jwt({ token, user }) {
       if (user) token.user = user as User;
