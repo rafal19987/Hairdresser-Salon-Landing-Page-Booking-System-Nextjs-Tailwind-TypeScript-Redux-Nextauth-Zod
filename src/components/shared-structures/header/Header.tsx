@@ -8,23 +8,29 @@ import logo from '@/assets/logo.svg';
 const Header = () => {
   return (
     <header className='fixed top-0 flex items-center justify-center w-full bg-[var(--header-bg-light)] dark:bg-[var(--header-bg-dark)] z-20'>
-      <div className='relative flex items-center justify-between w-full h-[var(--header-height)] px-4 lg:max-w-[1600px]'>
-        <Link href={navigationRoutes[0].route}>
+      <div className='relative flex items-center justify-between w-full h-[var(--header-height)] '>
+        <Link href={navigationRoutes[0].route} className='pl-4'>
           <div className='flex items-center gap-4'>
             <div className='relative w-[50px] h-[60px]'>
               <Logo src={logo} alt='Logo image' />
             </div>
-            <h1 className='font-permanentMarker text-[var(--gold)] text-lg'>
+            <span className='font-permanentMarker text-[var(--gold)] text-lg'>
               Męska strefa
-            </h1>
+            </span>
           </div>
         </Link>
-        <div className='block w-14 h-10 bg-black rounded-lg md:hidden'>
+        <div className='block w-14 h-10 bg-black rounded-lg lg:hidden'>
           <Hamburger />
         </div>
-        <nav className='hidden md:w-[500px] lg:w-[600px] xl:w-[800px] h-[45px] md:block'>
+        <nav className='hidden lg:block'>
           <NavbarMenu />
         </nav>
+        <Link
+          className='hidden lg:flex items-center h-full p-4 bg-[var(--gold)] hover:opacity-90 transition-all'
+          href='/book'
+        >
+          <span className='text-black font-bold'>Zarezerwuj wizytę</span>
+        </Link>
       </div>
     </header>
   );

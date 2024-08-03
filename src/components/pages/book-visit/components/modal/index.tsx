@@ -111,7 +111,7 @@ export const Modal = () => {
       ),
   );
   return (
-    <section className='fixed w-full h-full'>
+    <section className='fixed right-0 w-screen h-screen'>
       <div className='flex items-center justify-center w-full h-full bg-black bg-opacity-20 backdrop-blur-sm'>
         <div className='relative flex flex-col gap-5 w-full max-w-3xl h-3/4 px-8 py-20 bg-white'>
           <CloseButton />
@@ -160,6 +160,28 @@ export const Modal = () => {
               </li>
             ))}
           </ul>
+          <div className='flex flex-col items-center gap-2'>
+            <h5>Wybierz fryzjera:</h5>
+            <ul className='flex gap-4'>
+              {service.executorId.map((executorId) => (
+                <li key={executorId}>
+                  <span
+                    className={`${
+                      selectedExecutorId === executorId
+                        ? 'font-bold'
+                        : 'font-normal'
+                    } hover:cursor-pointer`}
+                    onClick={() => setSelectedExecutorId(executorId)}
+                  >
+                    {
+                      employees.find((employee) => employee.id === executorId)
+                        ?.name
+                    }
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
           <div className='flex flex-col p-4 bg-neutral-300 rounded-lg'>
             <div className='flex justify-between'>
               <h4 className='font-bold'>{service.title}</h4>
@@ -169,34 +191,9 @@ export const Modal = () => {
               </div>
             </div>
             <hr />
-            <div className='flex justify-between'>
-              <div className='flex flex-col gap-2'>
-                <h5>Wybierz fryzjera:</h5>
-                <ul className='flex gap-4'>
-                  {service.executorId.map((executorId) => (
-                    <li key={executorId}>
-                      <span
-                        className={`${
-                          selectedExecutorId === executorId
-                            ? 'font-bold'
-                            : 'font-normal'
-                        } hover:cursor-pointer`}
-                        onClick={() => setSelectedExecutorId(executorId)}
-                      >
-                        {
-                          employees.find(
-                            (employee) => employee.id === executorId,
-                          )?.name
-                        }
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
           </div>
           <button
-            className='self-end border'
+            className='self-end px-6 py-4 bg-[var(--gold)] font-semibold transition-all hover:opacity-80'
             onClick={() => handleReservation()}
           >
             Create reservation

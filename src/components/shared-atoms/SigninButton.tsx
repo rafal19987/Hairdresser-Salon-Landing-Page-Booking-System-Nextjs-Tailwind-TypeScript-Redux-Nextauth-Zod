@@ -1,7 +1,7 @@
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/app/api/auth/[...nextauth]/authOptions';
 import Link from 'next/link';
-import { Button } from './Button';
+import { SignOutButton } from './SignOutButton';
 
 export const SigninButton: React.FC<{ children?: React.ReactNode }> = async ({
   children,
@@ -9,11 +9,11 @@ export const SigninButton: React.FC<{ children?: React.ReactNode }> = async ({
   const session = await getServerSession(authOptions);
 
   return (
-    <div className='flex items-center gap-2'>
+    <div className='flex items-center gap-2 justify-end'>
       {session && session.user ? (
         <>
           <p>{`${session.user.name}`}</p>
-          <Link href='/api/auth/signout'>Wyloguj</Link>
+          <SignOutButton />
         </>
       ) : (
         <>
