@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import starIcon from '@/assets/star-icon.svg';
+import starIcon from '@icons/star-icon.svg';
 
 const convertRatingScoreToArray = (ratingScore: number): number[] =>
   Array(ratingScore).fill(1);

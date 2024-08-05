@@ -1,19 +1,13 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { useAppSelector } from '@/store/hooks';
 import SectionWrapper from '@/components/shared-atoms/SectionWrapper';
 import ArticleWrapper from '@/components/shared-atoms/ArticleWrapper';
-import ImageContainer from '@/components/shared-atoms/ImageContainer';
-import ImageItem from '@/components/shared-atoms/ImageItem';
 import EmployeeCard from '@/components/shared-atoms/EmployeeCard';
 import FlexContainer from '@/components/shared-atoms/FlexContainer';
 import EmployeeContainer from '@/components/shared-atoms/EmployeeContainer';
 import * as Typography from '@/components/shared-atoms/typography/Typography';
-import firstImage from '@/assets/about-page-first-image.jpg';
-import salonImage from '@/assets/salon-image.jpg';
-import combIcon from '@/assets/comb-icon.svg';
-import { TEmployeeProps } from '@/types/employeeTypes';
+import firstImage from '@/assets/about-page-first-image.avif';
 import Image from 'next/image';
 
 const AboutPage = () => {

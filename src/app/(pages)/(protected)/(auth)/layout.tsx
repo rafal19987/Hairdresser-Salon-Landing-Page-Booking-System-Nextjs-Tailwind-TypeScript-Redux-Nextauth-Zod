@@ -2,7 +2,7 @@ import { redirect } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { AuthNavigation } from './AuthNavigation';
-import image from '@/assets/about-page-first-image.jpg';
+import image from '@/assets/about-page-first-image.avif';
 import { Toaster } from 'react-hot-toast';
 import { getServerSession } from 'next-auth';
 
