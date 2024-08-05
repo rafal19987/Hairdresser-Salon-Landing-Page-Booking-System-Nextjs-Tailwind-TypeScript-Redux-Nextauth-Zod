@@ -1,14 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import locationIcon from '@/assets/location-icon.svg';
-import phoneIcon from '@/assets/phone-icon.svg';
-import logoIcon from '@/assets/logo.svg';
-import manWithGlassesImg from '@/assets/man-with-glasses.png';
+import locationIcon from '@icons/location-icon.svg';
+import phoneIcon from '@icons/phone-icon.svg';
 import mainWithGlassesImgDesktop from '@/assets/man-with-glasses-big.png';
 import homeContent from '@/helpers/content/pages/home/homeContent';
-import SalonAddress from '../../contact/componenets/SalonAddress';
 import ImageContainer from '@/components/shared-atoms/ImageContainer';
-import ImageItem from '@/components/shared-atoms/ImageItem';
 
 const Card = () => {
   const { primaryAddress, secondaryAddress, phoneNumber } = homeContent;

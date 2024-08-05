@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import confirmIcon from '@/assets/confirm-icon.svg';
+import confirmIcon from '@icons/confirm-icon.svg';
 
 function ActivationLinkSendConfirmPage() {
   return (

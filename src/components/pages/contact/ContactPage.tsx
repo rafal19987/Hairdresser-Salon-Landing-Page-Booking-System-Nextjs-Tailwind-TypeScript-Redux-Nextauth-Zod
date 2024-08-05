@@ -1,15 +1,12 @@
 import ContactForm from '@/components/pages/contact/componenets/contactForm/ContactForm';
 import SectionWrapper from '@/components/shared-atoms/SectionWrapper';
 import ArticleWrapper from '@/components/shared-atoms/ArticleWrapper';
-import ImageContainer from '@/components/shared-atoms/ImageContainer';
-import ImageItem from '@/components/shared-atoms/ImageItem';
 import EmployeeCard from '@/components/shared-atoms/EmployeeCard';
 import FlexContainer from '@/components/shared-atoms/FlexContainer';
 import EmployeeContainer from '@/components/shared-atoms/EmployeeContainer';
 import * as Typography from '@/components/shared-atoms/typography/Typography';
-import googleMapsScreen from '@/assets/google-map-screen.png';
-import employee1 from '@/assets/employee-1-face-image-big.png';
-import employee2 from '@/assets/employee-2-face-image-big.png';
+import employee1 from '@/assets/employee-1-face-image-big.avif';
+import employee2 from '@/assets/employee-2-face-image-big.avif';
 
 const ContactPage = () => {
   return (

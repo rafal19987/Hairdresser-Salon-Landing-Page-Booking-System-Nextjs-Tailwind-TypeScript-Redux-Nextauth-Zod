@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import instagramIcon from '@/assets/instagram-icon.svg';
-import facebookIcon from '@/assets/facebook-icon.svg';
-import googleIcon from '@/assets/google-icon.svg';
+import instagramIcon from '@icons/instagram-icon.svg';
+import facebookIcon from '@icons/facebook-icon.svg';
+import googleIcon from '@icons/google-icon.svg';
 
 const Footer = () => {
   return (
