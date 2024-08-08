@@ -12,7 +12,9 @@ const GalleryPage = () => {
 
   return (
     <SectionWrapper>
-      <Typography.H1 text='Galeria' />
+      <div data-aos='fade-down' data-aos-once='true'>
+        <Typography.H1 text='Galeria' />
+      </div>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
         {IMAGES.map((image, idx) => (
           <Image

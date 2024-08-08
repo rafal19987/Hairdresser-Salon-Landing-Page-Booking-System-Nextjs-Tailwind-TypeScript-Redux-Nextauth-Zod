@@ -13,7 +13,11 @@ const Review = ({ review }: { review: TReviewsProps }) => {
   } = review;
 
   return (
-    <li className='relative flex flex-col my-14 py-4 px-4 gap-4 bg-[#424242] rounded-[20px] '>
+    <li
+      className='relative flex flex-col my-14 py-4 px-4 gap-4 bg-[#424242] rounded-[20px] '
+      data-aos='fade-down'
+      data-aos-delay='100'
+    >
       <RatingStars rating={rating} />
       <Image
         className='max-[295px]:hidden absolute -right-4 -top-8'

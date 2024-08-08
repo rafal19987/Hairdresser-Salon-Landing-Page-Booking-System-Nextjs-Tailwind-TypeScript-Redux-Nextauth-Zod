@@ -7,7 +7,9 @@ const ReviewsPage = () => {
   return (
     <SectionWrapper>
       <ArticleWrapper>
-        <Typography.H1 text='Poznaj opinie Naszych klientów' />
+        <div data-aos='fade-down' data-aos-once='true'>
+          <Typography.H1 text='Poznaj opinie Naszych klientów' />
+        </div>
         <div className='relative w-full h-fit my-8 lg:min-h-[20vh]'>
           <ReviewsList />
         </div>

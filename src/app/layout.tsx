@@ -1,6 +1,7 @@
 import { ThemeContextProvider } from '@/context/ThemeContext';
 import { NextAuthProvider } from './NextAuthProvider';
 import { ReduxProvider } from '@/store/provider';
+import { AosProvider } from './AosProvider';
 import './globals.css';
 import { TailwindIndicator } from '@/components/shared-atoms/TailwindIndicator';
 
@@ -19,7 +20,9 @@ export default function RootLayout({
       <body>
         <ThemeContextProvider>
           <NextAuthProvider>
-            <ReduxProvider>{children}</ReduxProvider>
+            <AosProvider>
+              <ReduxProvider>{children}</ReduxProvider>
+            </AosProvider>
             <TailwindIndicator />
           </NextAuthProvider>
         </ThemeContextProvider>
