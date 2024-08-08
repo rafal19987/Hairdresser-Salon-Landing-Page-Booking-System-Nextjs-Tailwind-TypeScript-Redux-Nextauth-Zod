@@ -1,5 +1,9 @@
 import { Toaster } from 'react-hot-toast';
 import { NextAuthProvider } from '@/app/NextAuthProvider';
+import { DEFAULT } from '@/config';
+import { generateMetadata } from '@/helpers/functions/generateMetadata';
+
+export const metadata = generateMetadata(DEFAULT.TITLE, DEFAULT.DESCRIPTION);
 
 export default async function BookVisitLayout({
   children,

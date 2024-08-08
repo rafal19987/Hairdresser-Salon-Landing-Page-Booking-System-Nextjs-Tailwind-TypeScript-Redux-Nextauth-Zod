@@ -4,19 +4,18 @@ import { ReduxProvider } from '@/store/provider';
 import { AosProvider } from './AosProvider';
 import './globals.css';
 import { TailwindIndicator } from '@/components/shared-atoms/TailwindIndicator';
+import { HOME } from '@/config';
+import { generateMetadata } from '@/helpers/functions/generateMetadata';
 
-export const metadata = {
-  title: 'Męski fryzjer',
-  description: 'Męski Fryzjer',
-};
+export const metadata = generateMetadata(HOME.TITLE, HOME.DESCRIPTION);
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang='pl'>
+    <html lang='pl_PL'>
       <link rel='apple-touch-icon' sizes='57x57' href='/apple-icon-57x57.png' />
       <link rel='apple-touch-icon' sizes='60x60' href='/apple-icon-60x60.png' />
       <link rel='apple-touch-icon' sizes='72x72' href='/apple-icon-72x72.png' />
