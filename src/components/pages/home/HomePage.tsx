@@ -14,16 +14,30 @@ const HomePage = () => {
       <ArticleWrapper>
         <div className='grid grid-cols-1 md:grid-cols-2 place-items-center'>
           <div className='flex flex-col gap-2'>
-            <Typography.H1 align='left' text='U Nas' />
-            <Typography.H2 align='left' text='poczujesz się jak król' />
+            <div
+              data-aos='fade-right'
+              data-aos-once='true'
+              data-aos-delay='100'
+            >
+              <Typography.H1 align='left' text='U Nas' />
+              <Typography.H2 align='left' text='poczujesz się jak król' />
+            </div>
             <Link
               className='self-end w-fit mt-12 p-4 bg-[var(--gold)] hover:opacity-90 transition-all'
               href='/book'
+              data-aos='zoom-in-up'
+              data-aos-once='true'
+              data-aos-delay='300'
             >
               <span className='text-black font-bold'>Zarezerwuj wizytę</span>
             </Link>
           </div>
-          <div className='relative'>
+          <div
+            className='relative'
+            data-aos='zoom-in-left'
+            data-aos-once='true'
+            data-aos-delay='300'
+          >
             <Image
               className='w-[75vw] md:w-[100vw] h-auto'
               src={homeImage}

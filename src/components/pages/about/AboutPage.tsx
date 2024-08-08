@@ -15,9 +15,11 @@ const AboutPage = () => {
 
   return (
     <SectionWrapper>
-      <Typography.H1 text='Witamy w Męskiej Strefie' />
+      <div data-aos='fade-down' data-aos-once='true'>
+        <Typography.H1 text='Witamy w Męskiej Strefie' />
+      </div>
       <ArticleWrapper className='lg:grid lg:grid-cols-2 lg:gap-x-12'>
-        <div>
+        <div data-aos='fade-right' data-aos-once='true' data-aos-delay='100'>
           <Typography.P
             text='Nowoczesnym salonie fryzjerskim stworzonym specjalnie dla mężczyzn,
           gdzie pasja do męskiego fryzjerstwa spotyka się z najwyższą jakością
@@ -31,29 +33,33 @@ const AboutPage = () => {
           />
         </div>
 
-        <FlexContainer>
-          <Image
-            src={firstImage}
-            alt='hands with hairdressers utils'
-            placeholder='blur'
-            priority
-            width={0}
-            height={0}
-            sizes='100vw'
-            aria-hidden
-          />
-          <Typography.Blockquote
-            text='Fryzjerstwo to sztuka przekształcania włosów w dzieło sztuki.~Vidal
-          Sassoon'
-          />
-        </FlexContainer>
+        <Image
+          data-aos='fade-left'
+          data-aos-once='true'
+          data-aos-delay='100'
+          src={firstImage}
+          alt='hands with hairdressers utils'
+          placeholder='blur'
+          priority
+          width={0}
+          height={0}
+          sizes='100vw'
+          aria-hidden
+        />
       </ArticleWrapper>
 
       <ArticleWrapper>
-        <Typography.H2 text='Nasze specjalistki' />
+        <div data-aos='fade-down' data-aos-once='true' data-aos-delay='200'>
+          <Typography.H2 text='Nasze specjalistki' />
+        </div>
         <EmployeeContainer>
           {employees?.map((employee) => (
-            <div key={employee.id}>
+            <div
+              key={employee.id}
+              data-aos='fade-left'
+              data-aos-once='true'
+              data-aos-delay='100'
+            >
               <EmployeeCard
                 imageAlt=''
                 photo={employee.photo}

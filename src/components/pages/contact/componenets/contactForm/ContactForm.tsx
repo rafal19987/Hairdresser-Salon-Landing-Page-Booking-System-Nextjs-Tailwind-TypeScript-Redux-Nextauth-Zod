@@ -75,6 +75,9 @@ const ContactForm = () => {
     >
       <Label htmlFor='imie' value='Imię' />
       <input
+        data-aos='fade-down'
+        data-aos-once='true'
+        data-aos-delay='100'
         {...register('name')}
         type='text'
         id='name'
@@ -96,6 +99,9 @@ const ContactForm = () => {
 
       <Label htmlFor='phoneNumber' value='Number telefonu' />
       <input
+        data-aos='fade-down'
+        data-aos-once='true'
+        data-aos-delay='100'
         {...register('phoneNumber')}
         type='text'
         id='phoneNumber'
@@ -118,6 +124,9 @@ const ContactForm = () => {
       <Label htmlFor='message' value='Wiadomość' />
 
       <textarea
+        data-aos='fade-down'
+        data-aos-once='true'
+        data-aos-delay='100'
         {...register('message')}
         id='message'
         className={`h-24 mt-2 p-4 border 
@@ -136,6 +145,9 @@ const ContactForm = () => {
       </span>
 
       <button
+        data-aos='fade-down'
+        data-aos-once='true'
+        data-aos-delay='100'
         disabled={!isDirty || isSubmitting}
         onClick={() => reset()}
         className='w-28 md:w-1/5 h-12 mt-3 border border-green-300 disabled:border-neutral-800 text-green-300 disabled:text-neutral-800 disabled:cursor-not-allowed transition-colors duration-200'
@@ -143,6 +155,9 @@ const ContactForm = () => {
         Wyczyść
       </button>
       <input
+        data-aos='fade-down'
+        data-aos-once='true'
+        data-aos-delay='100'
         disabled={!isValid || isSubmitting}
         className={`self-end w-[200px] h-[55px] mt-8 border ${
           isValid
